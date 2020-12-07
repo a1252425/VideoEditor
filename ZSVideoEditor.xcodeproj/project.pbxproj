@@ -19,6 +19,8 @@
 		2B5C7353257A117C003467F7 /* MetalTest.metal in Sources */ = {isa = PBXBuildFile; fileRef = 2B5C7352257A117C003467F7 /* MetalTest.metal */; };
 		2B5C7359257A2CA1003467F7 /* MetalTestLayerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B5C7358257A2CA1003467F7 /* MetalTestLayerView.swift */; };
 		2B5C735C257A3111003467F7 /* MathUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B5C735B257A3111003467F7 /* MathUtils.swift */; };
+		2B5C736F257E54D9003467F7 /* VideoFlashView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B5C736D257E54D8003467F7 /* VideoFlashView.swift */; };
+		2B5C7370257E54D9003467F7 /* VideoFlash.metal in Sources */ = {isa = PBXBuildFile; fileRef = 2B5C736E257E54D8003467F7 /* VideoFlash.metal */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,6 +38,8 @@
 		2B5C7352257A117C003467F7 /* MetalTest.metal */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.metal; path = MetalTest.metal; sourceTree = "<group>"; };
 		2B5C7358257A2CA1003467F7 /* MetalTestLayerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MetalTestLayerView.swift; sourceTree = "<group>"; };
 		2B5C735B257A3111003467F7 /* MathUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MathUtils.swift; sourceTree = "<group>"; };
+		2B5C736D257E54D8003467F7 /* VideoFlashView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VideoFlashView.swift; sourceTree = "<group>"; };
+		2B5C736E257E54D8003467F7 /* VideoFlash.metal */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.metal; path = VideoFlash.metal; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -75,6 +79,7 @@
 				2B5C7352257A117C003467F7 /* MetalTest.metal */,
 				2B5C7358257A2CA1003467F7 /* MetalTestLayerView.swift */,
 				2B5C735B257A3111003467F7 /* MathUtils.swift */,
+				2B5C736C257E54B6003467F7 /* Fitlers */,
 				2B5C72E825774B41003467F7 /* Metal */,
 				2B5C72CC25774065003467F7 /* Assets.xcassets */,
 				2B5C72CE25774065003467F7 /* LaunchScreen.storyboard */,
@@ -91,6 +96,15 @@
 				2B5C734C2579E173003467F7 /* MainFilter.metal */,
 			);
 			path = Metal;
+			sourceTree = "<group>";
+		};
+		2B5C736C257E54B6003467F7 /* Fitlers */ = {
+			isa = PBXGroup;
+			children = (
+				2B5C736E257E54D8003467F7 /* VideoFlash.metal */,
+				2B5C736D257E54D8003467F7 /* VideoFlashView.swift */,
+			);
+			path = Fitlers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -164,11 +178,13 @@
 			files = (
 				2B5C734D2579E173003467F7 /* MainFilter.metal in Sources */,
 				2B5C72DB257740C6003467F7 /* ZSNavigationController.swift in Sources */,
+				2B5C7370257E54D9003467F7 /* VideoFlash.metal in Sources */,
 				2B5C72C825774061003467F7 /* HomeViewController.swift in Sources */,
 				2B5C7359257A2CA1003467F7 /* MetalTestLayerView.swift in Sources */,
 				2B5C7353257A117C003467F7 /* MetalTest.metal in Sources */,
 				2B5C734A2578D50B003467F7 /* Test.metal in Sources */,
 				2B5C7350257A0ABA003467F7 /* MetalTestView.swift in Sources */,
+				2B5C736F257E54D9003467F7 /* VideoFlashView.swift in Sources */,
 				2B5C72EA25774B66003467F7 /* MetalInstance.swift in Sources */,
 				2B5C735C257A3111003467F7 /* MathUtils.swift in Sources */,
 				2B5C72C425774061003467F7 /* AppDelegate.swift in Sources */,

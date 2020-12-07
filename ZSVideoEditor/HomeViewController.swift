@@ -16,7 +16,7 @@ enum ZSEffectType_Speed {
 
 final class HomeViewController: UIViewController {
   
-  private lazy var renderView = MetalTestView()
+  private lazy var renderView = VideoFlashView()
   
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -27,7 +27,12 @@ final class HomeViewController: UIViewController {
   
   override func viewSafeAreaInsetsDidChange() {
     super.viewSafeAreaInsetsDidChange()
-    renderView.frame = view.bounds.inset(by: view.safeAreaInsets)
+    let width: CGFloat = view.bounds.width
+    let height: CGFloat = width / 1280 * 720
+    renderView.frame = CGRect(x: 0,
+                              y: (view.bounds.height - height) * 0.5,
+                              width: width,
+                              height: height)
   }
 
   @objc private func addVideo() {
