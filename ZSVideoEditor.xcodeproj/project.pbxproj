@@ -14,13 +14,16 @@
 		2B5C72DB257740C6003467F7 /* ZSNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B5C72DA257740C6003467F7 /* ZSNavigationController.swift */; };
 		2B5C72EA25774B66003467F7 /* MetalInstance.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B5C72E925774B66003467F7 /* MetalInstance.swift */; };
 		2B5C734A2578D50B003467F7 /* Test.metal in Sources */ = {isa = PBXBuildFile; fileRef = 2B5C73492578D50B003467F7 /* Test.metal */; };
-		2B5C734D2579E173003467F7 /* MainFilter.metal in Sources */ = {isa = PBXBuildFile; fileRef = 2B5C734C2579E173003467F7 /* MainFilter.metal */; };
 		2B5C7350257A0ABA003467F7 /* MetalTestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B5C734F257A0ABA003467F7 /* MetalTestView.swift */; };
 		2B5C7353257A117C003467F7 /* MetalTest.metal in Sources */ = {isa = PBXBuildFile; fileRef = 2B5C7352257A117C003467F7 /* MetalTest.metal */; };
 		2B5C7359257A2CA1003467F7 /* MetalTestLayerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B5C7358257A2CA1003467F7 /* MetalTestLayerView.swift */; };
 		2B5C735C257A3111003467F7 /* MathUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B5C735B257A3111003467F7 /* MathUtils.swift */; };
-		2B5C736F257E54D9003467F7 /* VideoFlashView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B5C736D257E54D8003467F7 /* VideoFlashView.swift */; };
 		2B5C7370257E54D9003467F7 /* VideoFlash.metal in Sources */ = {isa = PBXBuildFile; fileRef = 2B5C736E257E54D8003467F7 /* VideoFlash.metal */; };
+		2B5C7376257F1EDB003467F7 /* BaseFilter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B5C7375257F1EDB003467F7 /* BaseFilter.swift */; };
+		2B5C737A257F1FA4003467F7 /* temp.MP4 in Resources */ = {isa = PBXBuildFile; fileRef = 2B5C7379257F1FA4003467F7 /* temp.MP4 */; };
+		2B5C737D257F1FCC003467F7 /* DisplayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B5C737C257F1FCC003467F7 /* DisplayView.swift */; };
+		2B5C7387257F2910003467F7 /* VideoFilter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B5C7386257F2910003467F7 /* VideoFilter.swift */; };
+		2B5C7393257F6DE3003467F7 /* VideoReader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B5C7392257F6DE3003467F7 /* VideoReader.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -33,13 +36,16 @@
 		2B5C72DA257740C6003467F7 /* ZSNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZSNavigationController.swift; sourceTree = "<group>"; };
 		2B5C72E925774B66003467F7 /* MetalInstance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MetalInstance.swift; sourceTree = "<group>"; };
 		2B5C73492578D50B003467F7 /* Test.metal */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.metal; path = Test.metal; sourceTree = "<group>"; };
-		2B5C734C2579E173003467F7 /* MainFilter.metal */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.metal; path = MainFilter.metal; sourceTree = "<group>"; };
 		2B5C734F257A0ABA003467F7 /* MetalTestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MetalTestView.swift; sourceTree = "<group>"; };
 		2B5C7352257A117C003467F7 /* MetalTest.metal */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.metal; path = MetalTest.metal; sourceTree = "<group>"; };
 		2B5C7358257A2CA1003467F7 /* MetalTestLayerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MetalTestLayerView.swift; sourceTree = "<group>"; };
 		2B5C735B257A3111003467F7 /* MathUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MathUtils.swift; sourceTree = "<group>"; };
-		2B5C736D257E54D8003467F7 /* VideoFlashView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VideoFlashView.swift; sourceTree = "<group>"; };
 		2B5C736E257E54D8003467F7 /* VideoFlash.metal */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.metal; path = VideoFlash.metal; sourceTree = "<group>"; };
+		2B5C7375257F1EDB003467F7 /* BaseFilter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseFilter.swift; sourceTree = "<group>"; };
+		2B5C7379257F1FA4003467F7 /* temp.MP4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = temp.MP4; sourceTree = "<group>"; };
+		2B5C737C257F1FCC003467F7 /* DisplayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisplayView.swift; sourceTree = "<group>"; };
+		2B5C7386257F2910003467F7 /* VideoFilter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoFilter.swift; sourceTree = "<group>"; };
+		2B5C7392257F6DE3003467F7 /* VideoReader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoReader.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -75,15 +81,14 @@
 				2B5C72C325774061003467F7 /* AppDelegate.swift */,
 				2B5C72DA257740C6003467F7 /* ZSNavigationController.swift */,
 				2B5C72C725774061003467F7 /* HomeViewController.swift */,
-				2B5C734F257A0ABA003467F7 /* MetalTestView.swift */,
-				2B5C7352257A117C003467F7 /* MetalTest.metal */,
-				2B5C7358257A2CA1003467F7 /* MetalTestLayerView.swift */,
-				2B5C735B257A3111003467F7 /* MathUtils.swift */,
+				2B5C737C257F1FCC003467F7 /* DisplayView.swift */,
+				2B5C7392257F6DE3003467F7 /* VideoReader.swift */,
 				2B5C736C257E54B6003467F7 /* Fitlers */,
 				2B5C72E825774B41003467F7 /* Metal */,
 				2B5C72CC25774065003467F7 /* Assets.xcassets */,
 				2B5C72CE25774065003467F7 /* LaunchScreen.storyboard */,
 				2B5C72D125774065003467F7 /* Info.plist */,
+				2B5C7378257F1F93003467F7 /* Resources */,
 			);
 			path = ZSVideoEditor;
 			sourceTree = "<group>";
@@ -92,8 +97,7 @@
 			isa = PBXGroup;
 			children = (
 				2B5C72E925774B66003467F7 /* MetalInstance.swift */,
-				2B5C73492578D50B003467F7 /* Test.metal */,
-				2B5C734C2579E173003467F7 /* MainFilter.metal */,
+				2B5C7381257F24E0003467F7 /* Test */,
 			);
 			path = Metal;
 			sourceTree = "<group>";
@@ -101,10 +105,31 @@
 		2B5C736C257E54B6003467F7 /* Fitlers */ = {
 			isa = PBXGroup;
 			children = (
+				2B5C7375257F1EDB003467F7 /* BaseFilter.swift */,
+				2B5C7386257F2910003467F7 /* VideoFilter.swift */,
 				2B5C736E257E54D8003467F7 /* VideoFlash.metal */,
-				2B5C736D257E54D8003467F7 /* VideoFlashView.swift */,
 			);
 			path = Fitlers;
+			sourceTree = "<group>";
+		};
+		2B5C7378257F1F93003467F7 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				2B5C7379257F1FA4003467F7 /* temp.MP4 */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		2B5C7381257F24E0003467F7 /* Test */ = {
+			isa = PBXGroup;
+			children = (
+				2B5C734F257A0ABA003467F7 /* MetalTestView.swift */,
+				2B5C7352257A117C003467F7 /* MetalTest.metal */,
+				2B5C7358257A2CA1003467F7 /* MetalTestLayerView.swift */,
+				2B5C735B257A3111003467F7 /* MathUtils.swift */,
+				2B5C73492578D50B003467F7 /* Test.metal */,
+			);
+			path = Test;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -165,6 +190,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2B5C72D025774065003467F7 /* LaunchScreen.storyboard in Resources */,
+				2B5C737A257F1FA4003467F7 /* temp.MP4 in Resources */,
 				2B5C72CD25774065003467F7 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -176,18 +202,20 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2B5C734D2579E173003467F7 /* MainFilter.metal in Sources */,
 				2B5C72DB257740C6003467F7 /* ZSNavigationController.swift in Sources */,
 				2B5C7370257E54D9003467F7 /* VideoFlash.metal in Sources */,
+				2B5C737D257F1FCC003467F7 /* DisplayView.swift in Sources */,
 				2B5C72C825774061003467F7 /* HomeViewController.swift in Sources */,
 				2B5C7359257A2CA1003467F7 /* MetalTestLayerView.swift in Sources */,
 				2B5C7353257A117C003467F7 /* MetalTest.metal in Sources */,
 				2B5C734A2578D50B003467F7 /* Test.metal in Sources */,
 				2B5C7350257A0ABA003467F7 /* MetalTestView.swift in Sources */,
-				2B5C736F257E54D9003467F7 /* VideoFlashView.swift in Sources */,
 				2B5C72EA25774B66003467F7 /* MetalInstance.swift in Sources */,
 				2B5C735C257A3111003467F7 /* MathUtils.swift in Sources */,
+				2B5C7376257F1EDB003467F7 /* BaseFilter.swift in Sources */,
+				2B5C7387257F2910003467F7 /* VideoFilter.swift in Sources */,
 				2B5C72C425774061003467F7 /* AppDelegate.swift in Sources */,
+				2B5C7393257F6DE3003467F7 /* VideoReader.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

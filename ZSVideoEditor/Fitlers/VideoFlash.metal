@@ -54,45 +54,43 @@ Parallelogram formated(Parallelogram temp) {
 }
 
 kernel void flash(
-                  texture2d<float, access::write> output [[ texture(0) ]],
+                  texture2d<float, access::read> input [[ texture(0) ]],
+                  texture2d<float, access::write> output [[ texture(1) ]],
                   constant Uniforms &uniforms [[ buffer(0) ]],
                   constant float &timer [[ buffer(1) ]],
                   uint2 gid [[ thread_position_in_grid ]]
                   )
 {
-  float4 color = float4(0.5, 0.5, 0.5, 1);
+  float4 color = input.read(gid);
   int width = output.get_width();
   int height = output.get_height();
+  
   float k = float(width) / float(height);
   float left = float(height) / k;
   float len = left + float(width);
   float space = len / float(uniforms.count);
+  
   Parallelogram p;
   for (int i = 0; i < uniforms.count; ++i) {
-    p.lt = float2(space * float(i), 0);
-    p.rt = float2(space * float(i + 1), 0);
-    p.rb = float2(space * float(i + 1) - left, float(height));
-    p.lb = float2(space * float(i) - left, float(height));
-    if (isIn(p, float2(gid))) {
-      float startTime = float(i) * uniforms.interval;
-      float progress = (timer - startTime) / uniforms.duration;
-      if (i % 2 == 0) {
-        float header = min(1.0, max(-1.0, (1 - progress)));
-        p.lt = float2(space * float(i) - left * header, float(height) * header);
-        p.rt = float2(space * float(i + 1) - left * (1 - progress), float(height) * (1 - progress));
-        float tail = min(2.0, max(-1.0, (2 - progress)));
-        p.rb = float2(space * float(i + 1) - left * tail, float(height) * tail);
-        p.lb = float2(space * float(i) - left * tail, float(height) * tail);
-      } else {
-        float head = min(2.0, max(0.0, (progress - 1)));
-        p.lt = float2(space * float(i) - left * head, float(height) * head);
-        p.rt = float2(space * float(i + 1) - left * head, float(height) * head);
-        p.lb = float2(space * float(i) - left * progress, float(height) * progress);
-        p.rb = float2(space * float(i + 1) - left * progress, float(height) * progress);
-      }
-      if (isIn(formated(p), float2(gid))) {
-        color = i % 2 == 0 ? uniforms.color1 : uniforms.color2;
-      }
+    float startTime = float(i) * uniforms.interval;
+    if (timer < startTime) continue;
+    float progress = (timer - startTime) / uniforms.duration * 2.0;
+    if (progress > 2.2) continue;
+    
+    if (i % 2 == 0) {
+      p.lt = float2(space * float(i) + left * (1.0 - progress), float(height) * (progress - 1.0));
+      p.lb = float2(space * float(i) + left * (0.0 - progress), float(height) * (progress - 0.0));
+      p.rt = float2(space * float(i + 1) + left * (1.0 - progress), float(height) * (progress - 1.0));
+      p.rb = float2(space * float(i + 1) + left * (0.0 - progress), float(height) * (progress - 0.0));
+    } else {
+      p.lt = float2(space * float(i) + left * (progress - 1.0), float(height) * (1.0 - progress));
+      p.lb = float2(space * float(i) + left * (progress - 2.0), float(height) * (2.0 - progress));
+      p.rt = float2(space * float(i + 1) + left * (progress - 1.0), float(height) * (1.0 - progress));
+      p.rb = float2(space * float(i + 1) + left * (progress - 2.0), float(height) * (2.0 - progress));
+    }
+    
+    if (isIn(formated(p), float2(gid))) {
+      color = i % 2 == 0 ? uniforms.color1 : uniforms.color2;
       break;
     }
   }

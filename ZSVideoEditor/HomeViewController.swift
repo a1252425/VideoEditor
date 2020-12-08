@@ -16,31 +16,62 @@ enum ZSEffectType_Speed {
 
 final class HomeViewController: UIViewController {
   
-  private lazy var renderView = VideoFlashView()
+  private var reader: VideoReader?
+  private var videoTime: TimeInterval = 0
+  
+  private lazy var renderView: DisplayView = {
+    DisplayView(frame: view.bounds, device: MetalInstance.sharedDevice)
+  }()
   
   override func viewDidLoad() {
     super.viewDidLoad()
     layoutUI()
     configUI()
-    view.addSubview(renderView)
+    let path = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true).first!
+    print(path)
   }
   
-  override func viewSafeAreaInsetsDidChange() {
-    super.viewSafeAreaInsetsDidChange()
-    let width: CGFloat = view.bounds.width
-    let height: CGFloat = width / 1280 * 720
-    renderView.frame = CGRect(x: 0,
-                              y: (view.bounds.height - height) * 0.5,
-                              width: width,
-                              height: height)
-  }
-
   @objc private func addVideo() {
-    let _ = MetalInstance.makeTexture(width: 1280, height: 720)
+    guard
+      let filePath = Bundle.main.path(forResource: "temp", ofType: "MP4")
+    else { return }
+    let reader = VideoReader(filePath)
+    reader.delegate = self
+    self.reader = reader
+    reader.startReading()
   }
   
   @objc private func historyVideo() {
     
+  }
+}
+
+extension HomeViewController: VideoReaderProtocol {
+  func output(sampleBuffer: CMSampleBuffer, adopter: AVAssetWriterInputPixelBufferAdaptor) {
+    guard
+      let pixelBuffer = CMSampleBufferGetImageBuffer(sampleBuffer)
+    else { return }
+    CVPixelBufferLockBaseAddress(pixelBuffer, [])
+    let currentTime = CMSampleBufferGetPresentationTimeStamp(sampleBuffer).seconds
+    if videoTime == 0 {
+      VideoFilter()
+        .proccess(pixelBuffer: pixelBuffer,
+                  adopter: adopter,
+                  atTime: &videoTime)
+    } else {
+      let time = CMTime(seconds: currentTime + videoTime, preferredTimescale: 600)
+      adopter.append(pixelBuffer, withPresentationTime: time)
+    }
+    print("read: \(currentTime + videoTime)")
+    CVPixelBufferUnlockBaseAddress(pixelBuffer, [])
+  }
+  
+  func onFinished(url: URL) {
+    let documentPath = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true).first!
+    let time = "\(Date().timeIntervalSince1970).mp4"
+    let filePath = URL(fileURLWithPath: documentPath + "/" + time)
+    try? FileManager.default.moveItem(at: url, to: filePath)
+    print("video process finished")
   }
 }
 
