@@ -15,7 +15,7 @@
 		2B5C72EA25774B66003467F7 /* MetalInstance.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B5C72E925774B66003467F7 /* MetalInstance.swift */; };
 		2B5C735C257A3111003467F7 /* MathUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B5C735B257A3111003467F7 /* MathUtils.swift */; };
 		2B5C7370257E54D9003467F7 /* VideoFlash.metal in Sources */ = {isa = PBXBuildFile; fileRef = 2B5C736E257E54D8003467F7 /* VideoFlash.metal */; };
-		2B5C7376257F1EDB003467F7 /* BaseFilter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B5C7375257F1EDB003467F7 /* BaseFilter.swift */; };
+		2B5C7376257F1EDB003467F7 /* ZSFilter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B5C7375257F1EDB003467F7 /* ZSFilter.swift */; };
 		2B5C737A257F1FA4003467F7 /* temp.MP4 in Resources */ = {isa = PBXBuildFile; fileRef = 2B5C7379257F1FA4003467F7 /* temp.MP4 */; };
 		2B5C737D257F1FCC003467F7 /* DisplayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B5C737C257F1FCC003467F7 /* DisplayView.swift */; };
 		2B5C7387257F2910003467F7 /* VideoFilter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B5C7386257F2910003467F7 /* VideoFilter.swift */; };
@@ -46,7 +46,7 @@
 		2B5C72E925774B66003467F7 /* MetalInstance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MetalInstance.swift; sourceTree = "<group>"; };
 		2B5C735B257A3111003467F7 /* MathUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MathUtils.swift; sourceTree = "<group>"; };
 		2B5C736E257E54D8003467F7 /* VideoFlash.metal */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.metal; path = VideoFlash.metal; sourceTree = "<group>"; };
-		2B5C7375257F1EDB003467F7 /* BaseFilter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseFilter.swift; sourceTree = "<group>"; };
+		2B5C7375257F1EDB003467F7 /* ZSFilter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZSFilter.swift; sourceTree = "<group>"; };
 		2B5C7379257F1FA4003467F7 /* temp.MP4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = temp.MP4; sourceTree = "<group>"; };
 		2B5C737C257F1FCC003467F7 /* DisplayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisplayView.swift; sourceTree = "<group>"; };
 		2B5C7386257F2910003467F7 /* VideoFilter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoFilter.swift; sourceTree = "<group>"; };
@@ -125,7 +125,7 @@
 		2B5C736C257E54B6003467F7 /* Fitlers */ = {
 			isa = PBXGroup;
 			children = (
-				2B5C7375257F1EDB003467F7 /* BaseFilter.swift */,
+				2B5C7375257F1EDB003467F7 /* ZSFilter.swift */,
 				2B5C7386257F2910003467F7 /* VideoFilter.swift */,
 				2B5C736E257E54D8003467F7 /* VideoFlash.metal */,
 				2B5C73B32580CE8E003467F7 /* VideoIconBgFilter.metal */,
@@ -245,7 +245,7 @@
 				2B5C72EA25774B66003467F7 /* MetalInstance.swift in Sources */,
 				2B5C735C257A3111003467F7 /* MathUtils.swift in Sources */,
 				2B5C73C12580E304003467F7 /* ZSFilter.metal in Sources */,
-				2B5C7376257F1EDB003467F7 /* BaseFilter.swift in Sources */,
+				2B5C7376257F1EDB003467F7 /* ZSFilter.swift in Sources */,
 				2B5C7387257F2910003467F7 /* VideoFilter.swift in Sources */,
 				2B5C73BA2580DC5E003467F7 /* VideoIconBgUpper.metal in Sources */,
 				2B5C73B42580CE8E003467F7 /* VideoIconBgFilter.metal in Sources */,

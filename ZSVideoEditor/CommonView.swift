@@ -110,7 +110,7 @@ extension CommonView {
       let buffer = device.makeBuffer(length: MemoryLayout<CommonUniforms>.size, options: [])
     else { fatalError() }
     let scale = Float(UIScreen.main.scale)
-    let frame = vector_float4(40 * scale, 40 * scale, 240 * scale, 240 * scale)
+    let frame = vector_float4(40 * scale, 40 * scale, 256 * scale, 256 * scale)
     let transform = matrix_float4x4.identity.xy_2d
     var uniforms = CommonUniforms(frame: frame,
                                   transform: transform)

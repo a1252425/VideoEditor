@@ -24,12 +24,12 @@ struct FlashUniforms {
   }
 }
 
-final class VideoFilter: BaseFilter {
+final class VideoFilter {
   private let cps: MTLComputePipelineState
   private var videoTexture: MTLTexture?
   private var drawTexture: MTLTexture?
   private lazy var uniformBuffer: MTLBuffer = {
-    device.makeBuffer(length: MemoryLayout<FlashUniforms>.size, options: [])!
+    MetalInstance.sharedDevice.makeBuffer(length: MemoryLayout<FlashUniforms>.size, options: [])!
   }()
   private var timer: Float = 0
   private var maxTime: Float = 0
@@ -41,7 +41,7 @@ final class VideoFilter: BaseFilter {
       let cps = try? MetalInstance.sharedDevice.makeComputePipelineState(function: kernel)
     else { fatalError("Compute pipline state create failed") }
     self.cps = cps
-    super.init()
+    
     var uniform = uniforms
     let uniformPointer = uniformBuffer.contents()
     memcpy(uniformPointer, &uniform, MemoryLayout<FlashUniforms>.size)
@@ -81,7 +81,7 @@ extension VideoFilter {
     
     //  Init texture
     var tmpTextureCache: CVMetalTextureCache?
-    CVMetalTextureCacheCreate(nil, nil, device, nil, &tmpTextureCache)
+    CVMetalTextureCacheCreate(nil, nil, MetalInstance.sharedDevice, nil, &tmpTextureCache)
     guard let textureCache = tmpTextureCache else { return }
     var tmpTexture: CVMetalTexture?
     CVMetalTextureCacheCreateTextureFromImage(kCFAllocatorDefault,
