@@ -13,10 +13,6 @@
 		2B5C72D025774065003467F7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2B5C72CE25774065003467F7 /* LaunchScreen.storyboard */; };
 		2B5C72DB257740C6003467F7 /* ZSNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B5C72DA257740C6003467F7 /* ZSNavigationController.swift */; };
 		2B5C72EA25774B66003467F7 /* MetalInstance.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B5C72E925774B66003467F7 /* MetalInstance.swift */; };
-		2B5C734A2578D50B003467F7 /* Test.metal in Sources */ = {isa = PBXBuildFile; fileRef = 2B5C73492578D50B003467F7 /* Test.metal */; };
-		2B5C7350257A0ABA003467F7 /* MetalTestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B5C734F257A0ABA003467F7 /* MetalTestView.swift */; };
-		2B5C7353257A117C003467F7 /* MetalTest.metal in Sources */ = {isa = PBXBuildFile; fileRef = 2B5C7352257A117C003467F7 /* MetalTest.metal */; };
-		2B5C7359257A2CA1003467F7 /* MetalTestLayerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B5C7358257A2CA1003467F7 /* MetalTestLayerView.swift */; };
 		2B5C735C257A3111003467F7 /* MathUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B5C735B257A3111003467F7 /* MathUtils.swift */; };
 		2B5C7370257E54D9003467F7 /* VideoFlash.metal in Sources */ = {isa = PBXBuildFile; fileRef = 2B5C736E257E54D8003467F7 /* VideoFlash.metal */; };
 		2B5C7376257F1EDB003467F7 /* BaseFilter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B5C7375257F1EDB003467F7 /* BaseFilter.swift */; };
@@ -24,7 +20,7 @@
 		2B5C737D257F1FCC003467F7 /* DisplayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B5C737C257F1FCC003467F7 /* DisplayView.swift */; };
 		2B5C7387257F2910003467F7 /* VideoFilter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B5C7386257F2910003467F7 /* VideoFilter.swift */; };
 		2B5C7393257F6DE3003467F7 /* VideoReader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B5C7392257F6DE3003467F7 /* VideoReader.swift */; };
-		2B5C739A25806CE8003467F7 /* IconFilter.metal in Sources */ = {isa = PBXBuildFile; fileRef = 2B5C739925806CE8003467F7 /* IconFilter.metal */; };
+		2B5C739A25806CE8003467F7 /* VideoIconFilter.metal in Sources */ = {isa = PBXBuildFile; fileRef = 2B5C739925806CE8003467F7 /* VideoIconFilter.metal */; };
 		2B5C73A4258074CF003467F7 /* icon_display.png in Resources */ = {isa = PBXBuildFile; fileRef = 2B5C739D258074CF003467F7 /* icon_display.png */; };
 		2B5C73A5258074CF003467F7 /* icon_title.png in Resources */ = {isa = PBXBuildFile; fileRef = 2B5C739E258074CF003467F7 /* icon_title.png */; };
 		2B5C73A6258074CF003467F7 /* 切片10@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2B5C739F258074CF003467F7 /* 切片10@2x.png */; };
@@ -33,6 +29,10 @@
 		2B5C73A9258074CF003467F7 /* icon_star.png in Resources */ = {isa = PBXBuildFile; fileRef = 2B5C73A2258074CF003467F7 /* icon_star.png */; };
 		2B5C73AA258074CF003467F7 /* icon_upper_bg.png in Resources */ = {isa = PBXBuildFile; fileRef = 2B5C73A3258074CF003467F7 /* icon_upper_bg.png */; };
 		2B5C73AE25808135003467F7 /* DisplayView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2B5C73AD25808135003467F7 /* DisplayView.xib */; };
+		2B5C73B42580CE8E003467F7 /* VideoIconBgFilter.metal in Sources */ = {isa = PBXBuildFile; fileRef = 2B5C73B32580CE8E003467F7 /* VideoIconBgFilter.metal */; };
+		2B5C73BA2580DC5E003467F7 /* VideoIconBgUpper.metal in Sources */ = {isa = PBXBuildFile; fileRef = 2B5C73B92580DC5E003467F7 /* VideoIconBgUpper.metal */; };
+		2B5C73C12580E304003467F7 /* ZSFilter.metal in Sources */ = {isa = PBXBuildFile; fileRef = 2B5C73C02580E304003467F7 /* ZSFilter.metal */; };
+		2B5C73C42580E6E5003467F7 /* CommonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B5C73C32580E6E5003467F7 /* CommonView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -44,10 +44,6 @@
 		2B5C72D125774065003467F7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2B5C72DA257740C6003467F7 /* ZSNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZSNavigationController.swift; sourceTree = "<group>"; };
 		2B5C72E925774B66003467F7 /* MetalInstance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MetalInstance.swift; sourceTree = "<group>"; };
-		2B5C73492578D50B003467F7 /* Test.metal */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.metal; path = Test.metal; sourceTree = "<group>"; };
-		2B5C734F257A0ABA003467F7 /* MetalTestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MetalTestView.swift; sourceTree = "<group>"; };
-		2B5C7352257A117C003467F7 /* MetalTest.metal */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.metal; path = MetalTest.metal; sourceTree = "<group>"; };
-		2B5C7358257A2CA1003467F7 /* MetalTestLayerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MetalTestLayerView.swift; sourceTree = "<group>"; };
 		2B5C735B257A3111003467F7 /* MathUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MathUtils.swift; sourceTree = "<group>"; };
 		2B5C736E257E54D8003467F7 /* VideoFlash.metal */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.metal; path = VideoFlash.metal; sourceTree = "<group>"; };
 		2B5C7375257F1EDB003467F7 /* BaseFilter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseFilter.swift; sourceTree = "<group>"; };
@@ -55,7 +51,7 @@
 		2B5C737C257F1FCC003467F7 /* DisplayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisplayView.swift; sourceTree = "<group>"; };
 		2B5C7386257F2910003467F7 /* VideoFilter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoFilter.swift; sourceTree = "<group>"; };
 		2B5C7392257F6DE3003467F7 /* VideoReader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoReader.swift; sourceTree = "<group>"; };
-		2B5C739925806CE8003467F7 /* IconFilter.metal */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.metal; path = IconFilter.metal; sourceTree = "<group>"; };
+		2B5C739925806CE8003467F7 /* VideoIconFilter.metal */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.metal; path = VideoIconFilter.metal; sourceTree = "<group>"; };
 		2B5C739D258074CF003467F7 /* icon_display.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_display.png; sourceTree = "<group>"; };
 		2B5C739E258074CF003467F7 /* icon_title.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_title.png; sourceTree = "<group>"; };
 		2B5C739F258074CF003467F7 /* 切片10@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "切片10@2x.png"; sourceTree = "<group>"; };
@@ -64,6 +60,10 @@
 		2B5C73A2258074CF003467F7 /* icon_star.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_star.png; sourceTree = "<group>"; };
 		2B5C73A3258074CF003467F7 /* icon_upper_bg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_upper_bg.png; sourceTree = "<group>"; };
 		2B5C73AD25808135003467F7 /* DisplayView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DisplayView.xib; sourceTree = "<group>"; };
+		2B5C73B32580CE8E003467F7 /* VideoIconBgFilter.metal */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.metal; path = VideoIconBgFilter.metal; sourceTree = "<group>"; };
+		2B5C73B92580DC5E003467F7 /* VideoIconBgUpper.metal */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.metal; path = VideoIconBgUpper.metal; sourceTree = "<group>"; };
+		2B5C73C02580E304003467F7 /* ZSFilter.metal */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.metal; path = ZSFilter.metal; sourceTree = "<group>"; };
+		2B5C73C32580E6E5003467F7 /* CommonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -100,6 +100,7 @@
 				2B5C72DA257740C6003467F7 /* ZSNavigationController.swift */,
 				2B5C72C725774061003467F7 /* HomeViewController.swift */,
 				2B5C737C257F1FCC003467F7 /* DisplayView.swift */,
+				2B5C73C32580E6E5003467F7 /* CommonView.swift */,
 				2B5C7392257F6DE3003467F7 /* VideoReader.swift */,
 				2B5C73AD25808135003467F7 /* DisplayView.xib */,
 				2B5C736C257E54B6003467F7 /* Fitlers */,
@@ -115,8 +116,8 @@
 		2B5C72E825774B41003467F7 /* Metal */ = {
 			isa = PBXGroup;
 			children = (
+				2B5C735B257A3111003467F7 /* MathUtils.swift */,
 				2B5C72E925774B66003467F7 /* MetalInstance.swift */,
-				2B5C7381257F24E0003467F7 /* Test */,
 			);
 			path = Metal;
 			sourceTree = "<group>";
@@ -127,7 +128,10 @@
 				2B5C7375257F1EDB003467F7 /* BaseFilter.swift */,
 				2B5C7386257F2910003467F7 /* VideoFilter.swift */,
 				2B5C736E257E54D8003467F7 /* VideoFlash.metal */,
-				2B5C739925806CE8003467F7 /* IconFilter.metal */,
+				2B5C73B32580CE8E003467F7 /* VideoIconBgFilter.metal */,
+				2B5C73B92580DC5E003467F7 /* VideoIconBgUpper.metal */,
+				2B5C739925806CE8003467F7 /* VideoIconFilter.metal */,
+				2B5C73C02580E304003467F7 /* ZSFilter.metal */,
 			);
 			path = Fitlers;
 			sourceTree = "<group>";
@@ -139,18 +143,6 @@
 				2B5C7379257F1FA4003467F7 /* temp.MP4 */,
 			);
 			path = Resources;
-			sourceTree = "<group>";
-		};
-		2B5C7381257F24E0003467F7 /* Test */ = {
-			isa = PBXGroup;
-			children = (
-				2B5C734F257A0ABA003467F7 /* MetalTestView.swift */,
-				2B5C7352257A117C003467F7 /* MetalTest.metal */,
-				2B5C7358257A2CA1003467F7 /* MetalTestLayerView.swift */,
-				2B5C735B257A3111003467F7 /* MathUtils.swift */,
-				2B5C73492578D50B003467F7 /* Test.metal */,
-			);
-			path = Test;
 			sourceTree = "<group>";
 		};
 		2B5C739C258073F2003467F7 /* icon_images */ = {
@@ -249,16 +241,16 @@
 				2B5C7370257E54D9003467F7 /* VideoFlash.metal in Sources */,
 				2B5C737D257F1FCC003467F7 /* DisplayView.swift in Sources */,
 				2B5C72C825774061003467F7 /* HomeViewController.swift in Sources */,
-				2B5C7359257A2CA1003467F7 /* MetalTestLayerView.swift in Sources */,
-				2B5C7353257A117C003467F7 /* MetalTest.metal in Sources */,
-				2B5C734A2578D50B003467F7 /* Test.metal in Sources */,
-				2B5C7350257A0ABA003467F7 /* MetalTestView.swift in Sources */,
+				2B5C73C42580E6E5003467F7 /* CommonView.swift in Sources */,
 				2B5C72EA25774B66003467F7 /* MetalInstance.swift in Sources */,
 				2B5C735C257A3111003467F7 /* MathUtils.swift in Sources */,
+				2B5C73C12580E304003467F7 /* ZSFilter.metal in Sources */,
 				2B5C7376257F1EDB003467F7 /* BaseFilter.swift in Sources */,
 				2B5C7387257F2910003467F7 /* VideoFilter.swift in Sources */,
+				2B5C73BA2580DC5E003467F7 /* VideoIconBgUpper.metal in Sources */,
+				2B5C73B42580CE8E003467F7 /* VideoIconBgFilter.metal in Sources */,
 				2B5C72C425774061003467F7 /* AppDelegate.swift in Sources */,
-				2B5C739A25806CE8003467F7 /* IconFilter.metal in Sources */,
+				2B5C739A25806CE8003467F7 /* VideoIconFilter.metal in Sources */,
 				2B5C7393257F6DE3003467F7 /* VideoReader.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

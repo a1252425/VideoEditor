@@ -1,13 +1,18 @@
 //
-//  DisplayView.swift
+//  CommonView.swift
 //  ZSVideoEditor
 //
-//  Created by DDS on 2020/12/8.
+//  Created by DDS on 2020/12/9.
 //
 
 import MetalKit
 
-final class DisplayView: MTKView {
+struct CommonUniforms {
+  let frame: vector_float4
+  let transform: matrix_float2x2
+}
+
+final class CommonView: MTKView {
   private var cps: MTLComputePipelineState?
   
   private var bgTexture: MTLTexture?
@@ -34,6 +39,11 @@ final class DisplayView: MTKView {
     fatalError("init(coder:) has not been implemented")
   }
   
+  override func layoutSubviews() {
+    super.layoutSubviews()
+    print(bounds)
+  }
+  
   private func update() {
     timer += 0.01
     if timer > 4 { timer = 0 }
@@ -49,14 +59,9 @@ final class DisplayView: MTKView {
     if let encoder = commandBuffer.makeComputeCommandEncoder(), let cps = cps {
       encoder.setComputePipelineState(cps)
       encoder.setTexture(drawable.texture, index: 0)
-      encoder.setTexture(bgTexture, index: 1)
-      encoder.setTexture(upperBgTexture, index: 2)
-      encoder.setTexture(displayTexture, index: 3)
-      encoder.setTexture(starTexture, index: 4)
-      encoder.setTexture(footballTexture, index: 5)
-      encoder.setTexture(titleTexture, index: 6)
+      encoder.setTexture(drawable.texture, index: 1)
+      encoder.setTexture(bgTexture, index: 2)
       encoder.setBuffer(uniformsBuffer, offset: 0, index: 0)
-      encoder.setBytes(&timer, length: MemoryLayout<Float>.size, index: 1)
       encoder.dispatchThreadgroups(drawable.texture)
       encoder.endEncoding()
     }
@@ -67,12 +72,12 @@ final class DisplayView: MTKView {
   }
 }
 
-extension DisplayView {
+extension CommonView {
   private func createCPSs() {
     guard
       let device = device,
       let library = device.makeDefaultLibrary(),
-      let kernel = library.makeFunction(name: "video_icon")
+      let kernel = library.makeFunction(name: "zs_compute")
     else { fatalError("UNKNOWN") }
     cps = try? device.makeComputePipelineState(function: kernel)
   }
@@ -102,14 +107,14 @@ extension DisplayView {
   private func createBuffers() {
     guard
       let device = device,
-      let buffer = device.makeBuffer(length: MemoryLayout<FlashUniforms>.size, options: [])
+      let buffer = device.makeBuffer(length: MemoryLayout<CommonUniforms>.size, options: [])
     else { fatalError() }
-    var uniforms = FlashUniforms(color1: [0, 0, 0, 1],
-                                 color2: [Float(142/255.0), Float(212/255.0), Float(65/255.0), 1],
-                                 interval: 0.1,
-                                 duration: 0.4,
-                                 count: 8)
-    memcpy(buffer.contents(), &uniforms, MemoryLayout<FlashUniforms>.size)
+    let scale = Float(UIScreen.main.scale)
+    let frame = vector_float4(40 * scale, 40 * scale, 240 * scale, 240 * scale)
+    let transform = matrix_float4x4.identity.xy_2d
+    var uniforms = CommonUniforms(frame: frame,
+                                  transform: transform)
+    memcpy(buffer.contents(), &uniforms, MemoryLayout<CommonUniforms>.size)
     uniformsBuffer = buffer
   }
 }

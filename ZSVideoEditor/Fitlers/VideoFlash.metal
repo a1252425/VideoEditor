@@ -23,11 +23,11 @@ struct Parallelogram {
   float2 lb;
 };
 
-bool crossPositiveValue(float2 p1, float2 p2) {
+static bool crossPositiveValue(float2 p1, float2 p2) {
   return (p1.x * p2.y - p2.x * p1.y) > 0;
 }
 
-bool isIn(Parallelogram parallelogram, float2 point) {
+static bool isIn(Parallelogram parallelogram, float2 point) {
   return
   crossPositiveValue(parallelogram.rt - parallelogram.lt, point - parallelogram.lt) &&
   crossPositiveValue(parallelogram.rb - parallelogram.rt, point - parallelogram.rt) &&
@@ -35,7 +35,7 @@ bool isIn(Parallelogram parallelogram, float2 point) {
   crossPositiveValue(parallelogram.lt - parallelogram.lb, point - parallelogram.lb);
 }
 
-float2 footer(float2 p1, float2 p2, float2 p) {
+static float2 footer(float2 p1, float2 p2, float2 p) {
   float A = (p2.y - p1.y) / (p2.x - p1.x);
   float B = -1;
   float C = p1.y - A * p1.x;
@@ -44,7 +44,7 @@ float2 footer(float2 p1, float2 p2, float2 p) {
   return float2(x, y);
 }
 
-Parallelogram formated(Parallelogram temp) {
+static Parallelogram formated(Parallelogram temp) {
   Parallelogram result;
   result.lt = footer(temp.lt, temp.lb, temp.rt);
   result.rt = temp.rt;
@@ -53,18 +53,9 @@ Parallelogram formated(Parallelogram temp) {
   return result;
 }
 
-kernel void flash(
-                  texture2d<float, access::read> input [[ texture(0) ]],
-                  texture2d<float, access::write> output [[ texture(1) ]],
-                  constant Uniforms &uniforms [[ buffer(0) ]],
-                  constant float &timer [[ buffer(1) ]],
-                  uint2 gid [[ thread_position_in_grid ]]
-                  )
+static float4 paralelogramColor(float width, float height, Uniforms uniforms, float timer, float2 gid)
 {
-  float4 color = input.read(gid);
-  int width = output.get_width();
-  int height = output.get_height();
-  
+  float4 color = float4(0);
   float k = float(width) / float(height);
   float left = float(height) / k;
   float len = left + float(width);
@@ -92,6 +83,25 @@ kernel void flash(
       break;
     }
   }
-  
+  return color;
+}
+
+kernel void flash(
+                  texture2d<float, access::read> input [[ texture(0) ]],
+                  texture2d<float, access::write> output [[ texture(1) ]],
+                  constant Uniforms &uniforms [[ buffer(0) ]],
+                  constant float &timer [[ buffer(1) ]],
+                  uint2 gid [[ thread_position_in_grid ]]
+                  )
+{
+  float4 color = input.read(gid);
+  int width = output.get_width();
+  int height = output.get_height();
+  float4 pColor = paralelogramColor(float(width),
+                                    float(height),
+                                    uniforms,
+                                    timer,
+                                    float2(gid));
+  color = mix(color, pColor, pColor.a);
   output.write(color, gid);
 }

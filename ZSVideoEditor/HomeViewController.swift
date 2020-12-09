@@ -19,8 +19,8 @@ final class HomeViewController: UIViewController {
   private var reader: VideoReader?
   private var videoTime: TimeInterval = 0
   
-  private lazy var renderView: DisplayView = {
-    DisplayView(frame: view.bounds, device: MetalInstance.sharedDevice)
+  private lazy var renderView: CommonView = {
+    CommonView(frame: view.bounds, device: MetalInstance.sharedDevice)
   }()
   
   override func viewDidLoad() {
@@ -32,9 +32,9 @@ final class HomeViewController: UIViewController {
   
   override func viewDidLayoutSubviews() {
     super.viewDidLayoutSubviews()
-    let width = view.bounds.width * 0.8
-    let height = width
-    renderView.frame = CGRect(x: (view.bounds.width - width) * 0.5,
+    let width = view.bounds.width
+    let height = width / 1280 * 720
+    renderView.frame = CGRect(x: 0,
                               y: (view.bounds.height - height) * 0.5,
                               width: width,
                               height: height)
