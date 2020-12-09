@@ -31,5 +31,10 @@ vertex Vertex vertex_func(constant Vertex *vertices [[ buffer(0) ]],
 
 fragment float4 fragment_func(Vertex vert [[ stage_in ]])
 {
+//  constexpr sampler textureSampler(coord::normalized,
+//                                   address::repeat,
+//                                   min_filter::linear,
+//                                   mag_filter::linear,
+//                                   mip_filter::linear);
   return vert.color;
 }

@@ -124,25 +124,4 @@ final class VideoReader {
     }
     assertReader.cancelReading()
   }
-
-  private func append(texture: MTLTexture, presentTime: CMTime) {
-//    if self.adaptor.assetWriterInput.isReadyForMoreMediaData {
-//      guard let pixeBufferPool = self.adaptor.pixelBufferPool else {
-//        return
-//      }
-//      if self.processedPixelBuffer == nil {
-//        CVPixelBufferPoolCreatePixelBuffer(kCFAllocatorDefault, pixeBufferPool, &self.processedPixelBuffer)
-//      }
-//      guard let pixelbuffer = self.processedPixelBuffer else {
-//        return
-//      }
-//      CVPixelBufferLockBaseAddress(pixelbuffer, CVPixelBufferLockFlags(rawValue: 0))
-//      let region = MTLRegionMake2D(0, 0, lroundf(Float(videoSize.width)), lroundf(Float(videoSize.height)))
-//      let buffer = CVPixelBufferGetBaseAddress(pixelbuffer)
-//      let bytesPerRow = 4 * region.size.width
-//      texture.getBytes(buffer!, bytesPerRow: bytesPerRow, from: region, mipmapLevel: 0)
-//      self.adaptor.append(pixelbuffer, withPresentationTime: presentTime)
-//      CVPixelBufferUnlockBaseAddress(pixelbuffer, CVPixelBufferLockFlags(rawValue: 0))
-//    }
-  }
 }

@@ -73,9 +73,7 @@ kernel void flash(
   Parallelogram p;
   for (int i = 0; i < uniforms.count; ++i) {
     float startTime = float(i) * uniforms.interval;
-    if (timer < startTime) continue;
     float progress = (timer - startTime) / uniforms.duration * 2.0;
-    if (progress > 2.2) continue;
     
     if (i % 2 == 0) {
       p.lt = float2(space * float(i) + left * (1.0 - progress), float(height) * (progress - 1.0));

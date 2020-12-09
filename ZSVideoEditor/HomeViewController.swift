@@ -27,8 +27,17 @@ final class HomeViewController: UIViewController {
     super.viewDidLoad()
     layoutUI()
     configUI()
-    let path = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true).first!
-    print(path)
+    view.addSubview(renderView)
+  }
+  
+  override func viewDidLayoutSubviews() {
+    super.viewDidLayoutSubviews()
+    let width = view.bounds.width * 0.8
+    let height = width
+    renderView.frame = CGRect(x: (view.bounds.width - width) * 0.5,
+                              y: (view.bounds.height - height) * 0.5,
+                              width: width,
+                              height: height)
   }
   
   @objc private func addVideo() {
