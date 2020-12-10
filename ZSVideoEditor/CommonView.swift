@@ -8,17 +8,10 @@
 import MetalKit
 
 final class CommonView: MTKView {
-  private var cps: MTLComputePipelineState?
-  
-  private var bgTexture: MTLTexture?
-  private var upperBgTexture: MTLTexture?
-  private var footballTexture: MTLTexture?
-  private var displayTexture: MTLTexture?
-  private var starTexture: MTLTexture?
-  private var titleTexture: MTLTexture?
-  
-  private var uniforms = [ZSUniform]()
-  private var uniformsBuffer: MTLBuffer?
+  private var textures = [ZSTexture]()
+  private lazy var paFilter: ZSPictureAnimationFilter = {
+    return ZSPictureAnimationFilter(content: textures[0].texture)
+  }()
   
   private var timer: Float = 0
   
@@ -26,9 +19,8 @@ final class CommonView: MTKView {
     super.init(frame: frameRect, device: device)
     framebufferOnly = false
     backgroundColor = .clear
-    createCPSs()
     createTextures()
-    createBuffers()
+    addAnimations()
   }
   
   required init(coder: NSCoder) {
@@ -37,40 +29,26 @@ final class CommonView: MTKView {
   
   private func update() {
     timer += 0.01
-    if timer > 4 { timer = 0 }
+    print("timer: \(timer)")
   }
   
   override func draw(_ rect: CGRect) {
     update()
+    guard let drawable = currentDrawable else { return }
+    
+    paFilter.render(drawable.texture,
+                    frame: CGRect(x: 60, y: 30, width: 210, height: 210),
+                    time: timer)
+    
     guard
-      let cps = cps,
-      let drawable = currentDrawable,
-      let commandBuffer = MetalInstance.sharedCommandQueue.makeCommandBuffer(),
-      let encoder = commandBuffer.makeComputeCommandEncoder()
+      let commandBuffer = MetalInstance.sharedCommandQueue.makeCommandBuffer()
     else { return }
-    var count = uniforms.count
-    encoder.setComputePipelineState(cps)
-    encoder.setTexture(drawable.texture, index: 0)
-    encoder.setTexture(drawable.texture, index: 1)
-    encoder.setBuffer(uniformsBuffer, offset: 0, index: 0)
-    encoder.setBytes(&count, length: MemoryLayout<Int>.size, index: 1)
-    encoder.dispatchThreadgroups(drawable.texture)
-    encoder.endEncoding()
     commandBuffer.present(drawable)
     commandBuffer.commit()
   }
 }
 
 extension CommonView {
-  private func createCPSs() {
-    guard
-      let device = device,
-      let library = device.makeDefaultLibrary(),
-      let kernel = library.makeFunction(name: "zs_compute")
-    else { fatalError("UNKNOWN") }
-    cps = try? device.makeComputePipelineState(function: kernel)
-  }
-  
   private func createTextures() {
     guard let device = device else { return }
     let textureLoader = MTKTextureLoader(device: device)
@@ -85,45 +63,24 @@ extension CommonView {
     .map { Bundle.main.path(forResource: $0, ofType: "png")! }
     .map { URL(fileURLWithPath: $0) }
     let textures = textureLoader.newTextures(URLs: urls, options: nil, error: nil)
-    bgTexture = textures[0]
-    upperBgTexture = textures[1]
-    footballTexture = textures[2]
-    displayTexture = textures[3]
-    starTexture = textures[4]
-    titleTexture = textures[5]
+    self.textures.append(ZSIconBgTexture(textures[0]))
+    self.textures.append(ZSUpperTexture(textures[1]))
+    self.textures.append(ZSFootballTexture(textures[2]))
+    self.textures.append(ZSDisplayTexture(textures[3]))
+    self.textures.append(ZSStarTexture(textures[4]))
+    self.textures.append(ZSTitleTexture(textures[5]))
   }
-  
-  private func createBuffers() {
-    guard
-      let device = device
-    else { fatalError() }
-    
-    let scale = Float(UIScreen.main.scale)
-    let transform = matrix_float4x4.identity.xy_2d
-    
-    if let texture = bgTexture {
-      let frame = vector_float4(40 * scale, 40 * scale, 256 * scale, 256 * scale)
-      let uniform = ZSUniform(frame: vector_int4(frame), transform: transform, texture: texture)
-      uniforms.append(uniform)
-    }
-    
-    if let texture = displayTexture {
-      let frame = vector_float4(40 * scale, 40 * scale, 256 * scale, 256 * scale)
-      let uniform = ZSUniform(frame: vector_int4(frame), transform: transform, texture: texture)
-      uniforms.append(uniform)
-    }
-//    
-//    if let texture = titleTexture {
-//      let frame = vector_float4(40 * scale, 40 * scale, 256 * scale, 256 * scale)
-//      let uniform = ZSUniform(frame: vector_int4(frame), transform: transform, texture: texture)
-//      uniforms.append(uniform)
-//    }
-    
-    let length = MemoryLayout<ZSUniform>.stride * uniforms.count
-    guard
-      let buffer = device.makeBuffer(length: length, options: [])
-    else { fatalError() }
-    memcpy(buffer.contents(), &uniforms, length)
-    uniformsBuffer = buffer
+}
+
+extension CommonView {
+  private func addAnimations() {
+    let animations: [ZSFilterAnimation] = [
+      ZSFilterAnimation(startTime: 1.5, endTime: 2.5, type: .scale(from: 1, to: 0)),
+      ZSFilterAnimation(startTime: 2.5, endTime: 3.5, type: .scale(from: 0, to: 1)),
+      ZSFilterAnimation(startTime: 3.9, endTime: 4.5, type: .rotate(from: 0, to: .pi * 0.25)),
+      ZSFilterAnimation(startTime: 4.5, endTime: 6, type: .rotate(from: .pi * 0.25, to: 0)),
+      ZSFilterAnimation(startTime: 1.5, endTime: 2.5, type: .translate(from: CGPoint(x: 120, y: 400), to: CGPoint(x: 400, y: 900)))
+    ]
+    animations.forEach { paFilter.add($0) }
   }
 }

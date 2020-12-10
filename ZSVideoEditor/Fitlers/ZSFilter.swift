@@ -10,35 +10,80 @@ import MetalKit
 struct ZSUniform {
   let frame: vector_int4
   let transform: matrix_float2x2
-  let texture: MTLTexture
 }
 
-//class ZSFilter {
-//  private(set) var subfilters = [ZSFilter]()
-//  private let uniform: ZSUniform
-//  init(_ frame: CGRect, content: MTLTexture) {
-//    let scale = UIScreen.main.scale
-//    let frame = vector_int4(Int32(frame.origin.x * scale),
-//                            Int32(frame.origin.y * scale),
-//                            Int32(frame.width * scale),
-//                            Int32(frame.height * scale))
-//    let transform = matrix_float4x4.identity.xy_2d
-//    self.uniform = ZSUniform(frame: frame,
-//                             transform: transform)
-//  }
-//  
-//  func render(_ frame: CGRect, texture: MTLTexture) {
-//  }
-//  
-//  func addSubfilter(_ filter: ZSFilter) {
-//    removeSubfilter(filter)
-//    subfilters.append(filter)
-//  }
-//  
-//  func removeSubfilter(_ filter: ZSFilter) {
-//    guard
-//      let index = subfilters.firstIndex(where: { $0 === filter })
-//    else { return }
-//    subfilters.remove(at: index)
-//  }
-//}
+struct ZSFilterUniform {
+  let frame: vector_float4
+  let transform: matrix_float2x2
+}
+
+enum ZSFilterAnimationType {
+  case scale(from: Float, to: Float)
+  case alpha(from: Float, to: Float)
+  case translate(from: CGPoint, to: CGPoint)
+  case rotate(from: Float, to: Float)
+}
+
+struct ZSFilterAnimation {
+  let startTime: Float
+  let endTime: Float
+  let type: ZSFilterAnimationType
+}
+
+class ZSFilterAttactment {}
+
+class ZSFilter {}
+
+extension Collection where Element == ZSFilterAnimation {
+  func transform2d(_ time: Float) -> matrix_float2x2 {
+    var matrix = matrix_float4x4.identity
+    
+    //  translate
+    if
+      let translateAnimation = first(where: { (animation) -> Bool in
+      if case .translate = animation.type {
+        return animation.startTime < time && animation.endTime > time
+      }
+      return false
+    }) {
+      if case let .translate(from, to) = translateAnimation.type {
+        let progress = (time - translateAnimation.startTime) / (translateAnimation.endTime - translateAnimation.startTime)
+        let x = Float(to.x - from.x) * progress + Float(from.x)
+        let y = Float(to.y - from.y) * progress + Float(from.y)
+        matrix = matrix_float4x4.translation(vector_float3(x, y ,0))
+      }
+    }
+    
+    //  scale
+    if
+      let animation = first(where: { (animation) -> Bool in
+      if case .scale = animation.type {
+        return animation.startTime < time && animation.endTime > time
+      }
+      return false
+    }) {
+      if case let .scale(from, to) = animation.type {
+        let progress = (time - animation.startTime) / (animation.endTime - animation.startTime)
+        let scale = Float(to - from) * progress + Float(from)
+        matrix = matrix_multiply(matrix, matrix_float4x4.scale(1/scale))
+      }
+    }
+    
+    //  rotate
+    if
+      let animation = first(where: { (animation) -> Bool in
+      if case .rotate = animation.type {
+        return animation.startTime < time && animation.endTime > time
+      }
+      return false
+    }) {
+      if case let .rotate(from, to) = animation.type {
+        let progress = (time - animation.startTime) / (animation.endTime - animation.startTime)
+        let rotate = Float(to - from) * progress + Float(from)
+        matrix = matrix_multiply(matrix, matrix_float4x4.rotate(rotate, axis: vector_float3(0, 0, 1)))
+      }
+    }
+    
+    return matrix.xy_2d
+  }
+}
