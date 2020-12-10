@@ -35,12 +35,12 @@ final class ZSPictureAnimationFilter {
                               Float(frame.origin.y),
                               Float(frame.width),
                               Float(frame.height))
-    var transform = animations.transform2d(time)
+    var transform = animations.transform(time)
     commandEncoder.setComputePipelineState(cps)
     commandEncoder.setTexture(inTexture, index: 0)
     commandEncoder.setTexture(texture, index: 1)
     commandEncoder.setBytes(&frame, length: MemoryLayout<vector_float4>.stride, index: 0)
-    commandEncoder.setBytes(&transform, length: MemoryLayout<matrix_float2x2>.stride, index: 1)
+    commandEncoder.setBytes(&transform, length: MemoryLayout<matrix_float4x4>.stride, index: 1)
     commandEncoder.dispatchThreadgroups(inTexture)
     commandEncoder.endEncoding()
     commandBuffer.commit()

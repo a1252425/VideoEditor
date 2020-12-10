@@ -35,7 +35,7 @@ class ZSFilterAttactment {}
 class ZSFilter {}
 
 extension Collection where Element == ZSFilterAnimation {
-  func transform2d(_ time: Float) -> matrix_float2x2 {
+  func transform(_ time: Float) -> matrix_float4x4 {
     var matrix = matrix_float4x4.identity
     
     //  translate
@@ -66,6 +66,7 @@ extension Collection where Element == ZSFilterAnimation {
         let progress = (time - animation.startTime) / (animation.endTime - animation.startTime)
         let scale = Float(to - from) * progress + Float(from)
         matrix = matrix_multiply(matrix, matrix_float4x4.scale(1/scale))
+        print(matrix)
       }
     }
     
@@ -84,6 +85,6 @@ extension Collection where Element == ZSFilterAnimation {
       }
     }
     
-    return matrix.xy_2d
+    return matrix
   }
 }

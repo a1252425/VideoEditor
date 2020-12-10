@@ -29,7 +29,7 @@ final class CommonView: MTKView {
   
   private func update() {
     timer += 0.01
-    print("timer: \(timer)")
+    if timer > 8 { timer = 0 }
   }
   
   override func draw(_ rect: CGRect) {
@@ -79,7 +79,8 @@ extension CommonView {
       ZSFilterAnimation(startTime: 2.5, endTime: 3.5, type: .scale(from: 0, to: 1)),
       ZSFilterAnimation(startTime: 3.9, endTime: 4.5, type: .rotate(from: 0, to: .pi * 0.25)),
       ZSFilterAnimation(startTime: 4.5, endTime: 6, type: .rotate(from: .pi * 0.25, to: 0)),
-      ZSFilterAnimation(startTime: 1.5, endTime: 2.5, type: .translate(from: CGPoint(x: 120, y: 400), to: CGPoint(x: 400, y: 900)))
+      ZSFilterAnimation(startTime: 1.5, endTime: 2.5, type: .translate(from: CGPoint(x: 0, y: 0), to: CGPoint(x: -80, y: -80))),
+      ZSFilterAnimation(startTime: 2.5, endTime: 4.5, type: .translate(from: CGPoint(x: -80, y: -80), to: CGPoint(x: 0, y: 0)))
     ]
     animations.forEach { paFilter.add($0) }
   }
