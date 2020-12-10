@@ -7,11 +7,6 @@
 
 import MetalKit
 
-struct CommonUniforms {
-  let frame: vector_float4
-  let transform: matrix_float2x2
-}
-
 final class CommonView: MTKView {
   private var cps: MTLComputePipelineState?
   
@@ -22,6 +17,7 @@ final class CommonView: MTKView {
   private var starTexture: MTLTexture?
   private var titleTexture: MTLTexture?
   
+  private var uniforms = [ZSUniform]()
   private var uniformsBuffer: MTLBuffer?
   
   private var timer: Float = 0
@@ -39,11 +35,6 @@ final class CommonView: MTKView {
     fatalError("init(coder:) has not been implemented")
   }
   
-  override func layoutSubviews() {
-    super.layoutSubviews()
-    print(bounds)
-  }
-  
   private func update() {
     timer += 0.01
     if timer > 4 { timer = 0 }
@@ -52,23 +43,21 @@ final class CommonView: MTKView {
   override func draw(_ rect: CGRect) {
     update()
     guard
+      let cps = cps,
       let drawable = currentDrawable,
-      let commandBuffer = MetalInstance.sharedCommandQueue.makeCommandBuffer()
+      let commandBuffer = MetalInstance.sharedCommandQueue.makeCommandBuffer(),
+      let encoder = commandBuffer.makeComputeCommandEncoder()
     else { return }
-    
-    if let encoder = commandBuffer.makeComputeCommandEncoder(), let cps = cps {
-      encoder.setComputePipelineState(cps)
-      encoder.setTexture(drawable.texture, index: 0)
-      encoder.setTexture(drawable.texture, index: 1)
-      encoder.setTexture(bgTexture, index: 2)
-      encoder.setBuffer(uniformsBuffer, offset: 0, index: 0)
-      encoder.dispatchThreadgroups(drawable.texture)
-      encoder.endEncoding()
-    }
-
+    var count = uniforms.count
+    encoder.setComputePipelineState(cps)
+    encoder.setTexture(drawable.texture, index: 0)
+    encoder.setTexture(drawable.texture, index: 1)
+    encoder.setBuffer(uniformsBuffer, offset: 0, index: 0)
+    encoder.setBytes(&count, length: MemoryLayout<Int>.size, index: 1)
+    encoder.dispatchThreadgroups(drawable.texture)
+    encoder.endEncoding()
     commandBuffer.present(drawable)
     commandBuffer.commit()
-    commandBuffer.waitUntilCompleted()
   }
 }
 
@@ -106,15 +95,35 @@ extension CommonView {
   
   private func createBuffers() {
     guard
-      let device = device,
-      let buffer = device.makeBuffer(length: MemoryLayout<CommonUniforms>.size, options: [])
+      let device = device
     else { fatalError() }
+    
     let scale = Float(UIScreen.main.scale)
-    let frame = vector_float4(40 * scale, 40 * scale, 256 * scale, 256 * scale)
     let transform = matrix_float4x4.identity.xy_2d
-    var uniforms = CommonUniforms(frame: frame,
-                                  transform: transform)
-    memcpy(buffer.contents(), &uniforms, MemoryLayout<CommonUniforms>.size)
+    
+    if let texture = bgTexture {
+      let frame = vector_float4(40 * scale, 40 * scale, 256 * scale, 256 * scale)
+      let uniform = ZSUniform(frame: vector_int4(frame), transform: transform, texture: texture)
+      uniforms.append(uniform)
+    }
+    
+    if let texture = displayTexture {
+      let frame = vector_float4(40 * scale, 40 * scale, 256 * scale, 256 * scale)
+      let uniform = ZSUniform(frame: vector_int4(frame), transform: transform, texture: texture)
+      uniforms.append(uniform)
+    }
+//    
+//    if let texture = titleTexture {
+//      let frame = vector_float4(40 * scale, 40 * scale, 256 * scale, 256 * scale)
+//      let uniform = ZSUniform(frame: vector_int4(frame), transform: transform, texture: texture)
+//      uniforms.append(uniform)
+//    }
+    
+    let length = MemoryLayout<ZSUniform>.stride * uniforms.count
+    guard
+      let buffer = device.makeBuffer(length: length, options: [])
+    else { fatalError() }
+    memcpy(buffer.contents(), &uniforms, length)
     uniformsBuffer = buffer
   }
 }

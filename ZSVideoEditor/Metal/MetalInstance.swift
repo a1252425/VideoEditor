@@ -41,6 +41,35 @@ extension MetalInstance {
                        height: texture.height,
                        format: texture.pixelFormat)
   }
+  
+  public class func makeTexture(width: Int, height: Int, textures: [MTLTexture]) -> MTLTexture {
+    let buffer = MetalInstance.sharedCommandQueue.makeCommandBuffer()!
+    let blitEncoder = buffer.makeBlitCommandEncoder()!
+    let desc = MTLTextureDescriptor()
+    desc.pixelFormat = .bgra8Unorm
+    desc.width = textures.max(by: { $0.width < $1.width })!.width
+    desc.height = textures.max(by: { $0.height < $1.height })!.height
+    desc.usage = [.shaderRead, .shaderWrite]
+    desc.arrayLength = textures.count
+    desc.textureType = .type2DArray
+    let texture = MetalInstance.sharedDevice.makeTexture(descriptor: desc)!
+    (0..<textures.count).forEach { (index) in
+      let item = textures[index]
+      blitEncoder.copy(from: textures[index],
+                       sourceSlice: 0,
+                       sourceLevel: 0,
+                       sourceOrigin: MTLOriginMake(0, 0, 0),
+                       sourceSize: MTLSizeMake(item.width, item.height, 1),
+                       to: texture,
+                       destinationSlice: index,
+                       destinationLevel: 0,
+                       destinationOrigin: MTLOriginMake(0, 0, 0))
+    }
+    blitEncoder.endEncoding()
+    buffer.commit()
+    buffer.waitUntilCompleted()
+    return texture
+  }
 }
 
 extension MTLComputeCommandEncoder {

@@ -7,37 +7,38 @@
 
 import MetalKit
 
-struct ZSUniforms {
+struct ZSUniform {
   let frame: vector_int4
   let transform: matrix_float2x2
+  let texture: MTLTexture
 }
 
-class ZSFilter {
-  var outTexture: MTLTexture?
-  private(set) var subfilters = [ZSFilter]()
-  
-  let uniforms: ZSUniforms
-  let content: MTLTexture
-  init(_ uniforms: ZSUniforms, content: MTLTexture) {
-    self.uniforms = uniforms
-    self.content = content
-  }
-  
-  func render(inTexture: MTLTexture, commandBuffer: MTLCommandBuffer) -> MTLTexture? {
-//    subfilters.forEach {
-//      outTexture = $0.render(inTexture: content, commandBuffer: commandBuffer)
-//    }
-    return outTexture
-  }
-  
-  func addSubfilter(_ filter: ZSFilter) {
-    subfilters.append(filter)
-  }
-  
-  func removeSubfilter(_ filter: ZSFilter) {
-    guard
-      let index = subfilters.firstIndex(where: { $0 === filter })
-    else { return }
-    subfilters.remove(at: index)
-  }
-}
+//class ZSFilter {
+//  private(set) var subfilters = [ZSFilter]()
+//  private let uniform: ZSUniform
+//  init(_ frame: CGRect, content: MTLTexture) {
+//    let scale = UIScreen.main.scale
+//    let frame = vector_int4(Int32(frame.origin.x * scale),
+//                            Int32(frame.origin.y * scale),
+//                            Int32(frame.width * scale),
+//                            Int32(frame.height * scale))
+//    let transform = matrix_float4x4.identity.xy_2d
+//    self.uniform = ZSUniform(frame: frame,
+//                             transform: transform)
+//  }
+//  
+//  func render(_ frame: CGRect, texture: MTLTexture) {
+//  }
+//  
+//  func addSubfilter(_ filter: ZSFilter) {
+//    removeSubfilter(filter)
+//    subfilters.append(filter)
+//  }
+//  
+//  func removeSubfilter(_ filter: ZSFilter) {
+//    guard
+//      let index = subfilters.firstIndex(where: { $0 === filter })
+//    else { return }
+//    subfilters.remove(at: index)
+//  }
+//}
