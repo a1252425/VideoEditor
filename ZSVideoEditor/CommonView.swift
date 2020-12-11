@@ -10,17 +10,14 @@ import MetalKit
 final class CommonView: MTKView {
   private var textures = [MTLTexture]()
   
-  private lazy var paFilter: ZSPictureAnimationFilter = {
-    return ZSPictureAnimationFilter(content: textures[0])
-  }()
-  
-  private lazy var textFilter: ZSTextFilter = {
-    let attributeString = NSAttributedString(string: "102KM/H", attributes: [
-      .font: UIFont.systemFont(ofSize: 30, weight: .semibold),
-      .foregroundColor: UIColor.red
-    ])
-    return ZSTextFilter(attributeString)
-  }()
+  private lazy var clearFilter = ZSClearFilter()
+  private lazy var bgFilter = ZSFilter(CGRect(x: 60, y: 30, width: 210, height: 210))
+  private lazy var filterGroup = ZSShootFilterGroup()
+//  private lazy var textFilter: ZSTextFilter = {
+//    let textFilter = ZSTextFilter(CGRect(x: 400, y: 50, width: 300, height: 120))
+//    textFilter.set(speed: 120, duration: 1.2)
+//    return textFilter
+//  }()
   
   private var timer: Float = 0
   
@@ -29,6 +26,7 @@ final class CommonView: MTKView {
     framebufferOnly = false
     backgroundColor = .clear
     createTextures()
+    bgFilter.set(content: textures[0])
     addAnimations()
   }
   
@@ -45,13 +43,10 @@ final class CommonView: MTKView {
     update()
     guard let drawable = currentDrawable else { return }
     
-    paFilter.render(drawable.texture,
-                    frame: CGRect(x: 60, y: 30, width: 210, height: 210),
-                    time: timer)
-    
-    textFilter.render(drawable.texture,
-                      frame: CGRect(x: 400, y: 50, width: 300, height: 120),
-                      time: timer)
+    clearFilter.render(drawable.texture)
+    bgFilter.render(drawable.texture, time: timer)
+    filterGroup.render(drawable.texture, timer: timer)
+//    textFilter.render(drawable.texture, time: timer)
     
     guard
       let commandBuffer = MetalInstance.sharedCommandQueue.makeCommandBuffer()
@@ -89,6 +84,6 @@ extension CommonView {
       ZSFilterAnimation(startTime: 1.5, endTime: 2.5, type: .translate(from: CGPoint(x: 0, y: 0), to: CGPoint(x: -80, y: -80))),
       ZSFilterAnimation(startTime: 2.5, endTime: 4.5, type: .translate(from: CGPoint(x: -80, y: -80), to: CGPoint(x: 0, y: 0)))
     ]
-    animations.forEach { paFilter.add($0) }
+    animations.forEach { bgFilter.add($0) }
   }
 }
