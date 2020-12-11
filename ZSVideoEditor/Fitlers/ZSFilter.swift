@@ -19,9 +19,10 @@ struct ZSFilterUniform {
 
 enum ZSFilterAnimationType {
   case scale(from: Float, to: Float)
-  case alpha(from: Float, to: Float)
   case translate(from: CGPoint, to: CGPoint)
   case rotate(from: Float, to: Float)
+  
+  case alpha(from: Float, to: Float)
 }
 
 struct ZSFilterAnimation {
@@ -66,7 +67,6 @@ extension Collection where Element == ZSFilterAnimation {
         let progress = (time - animation.startTime) / (animation.endTime - animation.startTime)
         let scale = Float(to - from) * progress + Float(from)
         matrix = matrix_multiply(matrix, matrix_float4x4.scale(1/scale))
-        print(matrix)
       }
     }
     

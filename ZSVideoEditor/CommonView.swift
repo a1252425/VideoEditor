@@ -8,9 +8,18 @@
 import MetalKit
 
 final class CommonView: MTKView {
-  private var textures = [ZSTexture]()
+  private var textures = [MTLTexture]()
+  
   private lazy var paFilter: ZSPictureAnimationFilter = {
-    return ZSPictureAnimationFilter(content: textures[0].texture)
+    return ZSPictureAnimationFilter(content: textures[0])
+  }()
+  
+  private lazy var textFilter: ZSTextFilter = {
+    let attributeString = NSAttributedString(string: "102KM/H", attributes: [
+      .font: UIFont.systemFont(ofSize: 30, weight: .semibold),
+      .foregroundColor: UIColor.red
+    ])
+    return ZSTextFilter(attributeString)
   }()
   
   private var timer: Float = 0
@@ -40,6 +49,10 @@ final class CommonView: MTKView {
                     frame: CGRect(x: 60, y: 30, width: 210, height: 210),
                     time: timer)
     
+    textFilter.render(drawable.texture,
+                      frame: CGRect(x: 400, y: 50, width: 300, height: 120),
+                      time: timer)
+    
     guard
       let commandBuffer = MetalInstance.sharedCommandQueue.makeCommandBuffer()
     else { return }
@@ -62,13 +75,7 @@ extension CommonView {
     ]
     .map { Bundle.main.path(forResource: $0, ofType: "png")! }
     .map { URL(fileURLWithPath: $0) }
-    let textures = textureLoader.newTextures(URLs: urls, options: nil, error: nil)
-    self.textures.append(ZSIconBgTexture(textures[0]))
-    self.textures.append(ZSUpperTexture(textures[1]))
-    self.textures.append(ZSFootballTexture(textures[2]))
-    self.textures.append(ZSDisplayTexture(textures[3]))
-    self.textures.append(ZSStarTexture(textures[4]))
-    self.textures.append(ZSTitleTexture(textures[5]))
+    textures = textureLoader.newTextures(URLs: urls, options: nil, error: nil)
   }
 }
 

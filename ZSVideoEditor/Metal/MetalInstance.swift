@@ -5,7 +5,7 @@
 //  Created by DDS on 2020/12/2.
 //
 
-import Metal
+import MetalKit
 
 public class MetalInstance {
   public static let shared: MetalInstance = MetalInstance()
@@ -14,6 +14,10 @@ public class MetalInstance {
 
   public let device: MTLDevice
   public let commandQueue: MTLCommandQueue
+  
+  public lazy var textureLoader: MTKTextureLoader = {
+    MTKTextureLoader(device: device)
+  }()
 
   private init() {
     device = MTLCreateSystemDefaultDevice()!

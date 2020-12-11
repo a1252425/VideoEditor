@@ -7,16 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		2B50E8A4258218AA004ED115 /* ZSIconBgTexture.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B50E8A3258218AA004ED115 /* ZSIconBgTexture.swift */; };
 		2B50E8A7258218B5004ED115 /* ZSTexture.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B50E8A6258218B5004ED115 /* ZSTexture.swift */; };
-		2B50E8AA25821A53004ED115 /* ZSUpperTexture.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B50E8A925821A53004ED115 /* ZSUpperTexture.swift */; };
-		2B50E8AD25821A61004ED115 /* ZSDisplayTexture.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B50E8AC25821A61004ED115 /* ZSDisplayTexture.swift */; };
-		2B50E8B025821A6C004ED115 /* ZSTitleTexture.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B50E8AF25821A6C004ED115 /* ZSTitleTexture.swift */; };
-		2B50E8B325821A77004ED115 /* ZSFootballTexture.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B50E8B225821A77004ED115 /* ZSFootballTexture.swift */; };
-		2B50E8B625821AD9004ED115 /* ZSStarTexture.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B50E8B525821AD9004ED115 /* ZSStarTexture.swift */; };
 		2B50E8BE25822CFD004ED115 /* ZSFilterAttachment.metal in Sources */ = {isa = PBXBuildFile; fileRef = 2B50E8BD25822CFD004ED115 /* ZSFilterAttachment.metal */; };
 		2B50E8C12582357C004ED115 /* ZSPictureAnimationFilter.metal in Sources */ = {isa = PBXBuildFile; fileRef = 2B50E8C02582357C004ED115 /* ZSPictureAnimationFilter.metal */; };
 		2B50E8C425823606004ED115 /* ZSPictureAnimationFilter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B50E8C325823606004ED115 /* ZSPictureAnimationFilter.swift */; };
+		2B50E8D0258321A8004ED115 /* ZSTextFilter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B50E8CF258321A8004ED115 /* ZSTextFilter.swift */; };
+		2B50E8D3258321BE004ED115 /* ZSTextFilter.metal in Sources */ = {isa = PBXBuildFile; fileRef = 2B50E8D2258321BE004ED115 /* ZSTextFilter.metal */; };
 		2B5C72C425774061003467F7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B5C72C325774061003467F7 /* AppDelegate.swift */; };
 		2B5C72C825774061003467F7 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B5C72C725774061003467F7 /* HomeViewController.swift */; };
 		2B5C72CD25774065003467F7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2B5C72CC25774065003467F7 /* Assets.xcassets */; };
@@ -33,7 +29,7 @@
 		2B5C739A25806CE8003467F7 /* VideoIconFilter.metal in Sources */ = {isa = PBXBuildFile; fileRef = 2B5C739925806CE8003467F7 /* VideoIconFilter.metal */; };
 		2B5C73A4258074CF003467F7 /* icon_display.png in Resources */ = {isa = PBXBuildFile; fileRef = 2B5C739D258074CF003467F7 /* icon_display.png */; };
 		2B5C73A5258074CF003467F7 /* icon_title.png in Resources */ = {isa = PBXBuildFile; fileRef = 2B5C739E258074CF003467F7 /* icon_title.png */; };
-		2B5C73A6258074CF003467F7 /* 切片10@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2B5C739F258074CF003467F7 /* 切片10@2x.png */; };
+		2B5C73A6258074CF003467F7 /* icon_line.png in Resources */ = {isa = PBXBuildFile; fileRef = 2B5C739F258074CF003467F7 /* icon_line.png */; };
 		2B5C73A7258074CF003467F7 /* icon_football.png in Resources */ = {isa = PBXBuildFile; fileRef = 2B5C73A0258074CF003467F7 /* icon_football.png */; };
 		2B5C73A8258074CF003467F7 /* icon_bg.png in Resources */ = {isa = PBXBuildFile; fileRef = 2B5C73A1258074CF003467F7 /* icon_bg.png */; };
 		2B5C73A9258074CF003467F7 /* icon_star.png in Resources */ = {isa = PBXBuildFile; fileRef = 2B5C73A2258074CF003467F7 /* icon_star.png */; };
@@ -46,16 +42,12 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		2B50E8A3258218AA004ED115 /* ZSIconBgTexture.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZSIconBgTexture.swift; sourceTree = "<group>"; };
 		2B50E8A6258218B5004ED115 /* ZSTexture.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZSTexture.swift; sourceTree = "<group>"; };
-		2B50E8A925821A53004ED115 /* ZSUpperTexture.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZSUpperTexture.swift; sourceTree = "<group>"; };
-		2B50E8AC25821A61004ED115 /* ZSDisplayTexture.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZSDisplayTexture.swift; sourceTree = "<group>"; };
-		2B50E8AF25821A6C004ED115 /* ZSTitleTexture.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZSTitleTexture.swift; sourceTree = "<group>"; };
-		2B50E8B225821A77004ED115 /* ZSFootballTexture.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZSFootballTexture.swift; sourceTree = "<group>"; };
-		2B50E8B525821AD9004ED115 /* ZSStarTexture.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZSStarTexture.swift; sourceTree = "<group>"; };
 		2B50E8BD25822CFD004ED115 /* ZSFilterAttachment.metal */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.metal; path = ZSFilterAttachment.metal; sourceTree = "<group>"; };
 		2B50E8C02582357C004ED115 /* ZSPictureAnimationFilter.metal */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.metal; path = ZSPictureAnimationFilter.metal; sourceTree = "<group>"; };
 		2B50E8C325823606004ED115 /* ZSPictureAnimationFilter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZSPictureAnimationFilter.swift; sourceTree = "<group>"; };
+		2B50E8CF258321A8004ED115 /* ZSTextFilter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZSTextFilter.swift; sourceTree = "<group>"; };
+		2B50E8D2258321BE004ED115 /* ZSTextFilter.metal */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.metal; path = ZSTextFilter.metal; sourceTree = "<group>"; };
 		2B5C72C025774061003467F7 /* ZSVideoEditor.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ZSVideoEditor.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2B5C72C325774061003467F7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2B5C72C725774061003467F7 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
@@ -74,7 +66,7 @@
 		2B5C739925806CE8003467F7 /* VideoIconFilter.metal */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.metal; path = VideoIconFilter.metal; sourceTree = "<group>"; };
 		2B5C739D258074CF003467F7 /* icon_display.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_display.png; sourceTree = "<group>"; };
 		2B5C739E258074CF003467F7 /* icon_title.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_title.png; sourceTree = "<group>"; };
-		2B5C739F258074CF003467F7 /* 切片10@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "切片10@2x.png"; sourceTree = "<group>"; };
+		2B5C739F258074CF003467F7 /* icon_line.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_line.png; sourceTree = "<group>"; };
 		2B5C73A0258074CF003467F7 /* icon_football.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_football.png; sourceTree = "<group>"; };
 		2B5C73A1258074CF003467F7 /* icon_bg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_bg.png; sourceTree = "<group>"; };
 		2B5C73A2258074CF003467F7 /* icon_star.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_star.png; sourceTree = "<group>"; };
@@ -148,18 +140,14 @@
 				2B5C7375257F1EDB003467F7 /* ZSFilter.swift */,
 				2B50E8C02582357C004ED115 /* ZSPictureAnimationFilter.metal */,
 				2B50E8C325823606004ED115 /* ZSPictureAnimationFilter.swift */,
+				2B50E8CF258321A8004ED115 /* ZSTextFilter.swift */,
+				2B50E8D2258321BE004ED115 /* ZSTextFilter.metal */,
 				2B5C7386257F2910003467F7 /* VideoFilter.swift */,
 				2B5C736E257E54D8003467F7 /* VideoFlash.metal */,
 				2B5C73B32580CE8E003467F7 /* VideoIconBgFilter.metal */,
 				2B5C73B92580DC5E003467F7 /* VideoIconBgUpper.metal */,
 				2B5C739925806CE8003467F7 /* VideoIconFilter.metal */,
 				2B5C73C02580E304003467F7 /* ZSFilter.metal */,
-				2B50E8A3258218AA004ED115 /* ZSIconBgTexture.swift */,
-				2B50E8A925821A53004ED115 /* ZSUpperTexture.swift */,
-				2B50E8AC25821A61004ED115 /* ZSDisplayTexture.swift */,
-				2B50E8AF25821A6C004ED115 /* ZSTitleTexture.swift */,
-				2B50E8B225821A77004ED115 /* ZSFootballTexture.swift */,
-				2B50E8B525821AD9004ED115 /* ZSStarTexture.swift */,
 				2B50E8A6258218B5004ED115 /* ZSTexture.swift */,
 				2B50E8BD25822CFD004ED115 /* ZSFilterAttachment.metal */,
 			);
@@ -178,7 +166,7 @@
 		2B5C739C258073F2003467F7 /* icon_images */ = {
 			isa = PBXGroup;
 			children = (
-				2B5C739F258074CF003467F7 /* 切片10@2x.png */,
+				2B5C739F258074CF003467F7 /* icon_line.png */,
 				2B5C73A1258074CF003467F7 /* icon_bg.png */,
 				2B5C739D258074CF003467F7 /* icon_display.png */,
 				2B5C73A0258074CF003467F7 /* icon_football.png */,
@@ -250,7 +238,7 @@
 				2B5C73A4258074CF003467F7 /* icon_display.png in Resources */,
 				2B5C737A257F1FA4003467F7 /* temp.MP4 in Resources */,
 				2B5C73AA258074CF003467F7 /* icon_upper_bg.png in Resources */,
-				2B5C73A6258074CF003467F7 /* 切片10@2x.png in Resources */,
+				2B5C73A6258074CF003467F7 /* icon_line.png in Resources */,
 				2B5C73AE25808135003467F7 /* DisplayView.xib in Resources */,
 				2B5C72CD25774065003467F7 /* Assets.xcassets in Resources */,
 				2B5C73A7258074CF003467F7 /* icon_football.png in Resources */,
@@ -267,8 +255,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2B50E8AD25821A61004ED115 /* ZSDisplayTexture.swift in Sources */,
-				2B50E8A4258218AA004ED115 /* ZSIconBgTexture.swift in Sources */,
 				2B5C72DB257740C6003467F7 /* ZSNavigationController.swift in Sources */,
 				2B5C7370257E54D9003467F7 /* VideoFlash.metal in Sources */,
 				2B50E8A7258218B5004ED115 /* ZSTexture.swift in Sources */,
@@ -278,18 +264,16 @@
 				2B5C73C42580E6E5003467F7 /* CommonView.swift in Sources */,
 				2B5C72EA25774B66003467F7 /* MetalInstance.swift in Sources */,
 				2B5C735C257A3111003467F7 /* MathUtils.swift in Sources */,
-				2B50E8B325821A77004ED115 /* ZSFootballTexture.swift in Sources */,
-				2B50E8AA25821A53004ED115 /* ZSUpperTexture.swift in Sources */,
-				2B50E8B025821A6C004ED115 /* ZSTitleTexture.swift in Sources */,
 				2B5C73C12580E304003467F7 /* ZSFilter.metal in Sources */,
 				2B50E8C425823606004ED115 /* ZSPictureAnimationFilter.swift in Sources */,
 				2B5C7376257F1EDB003467F7 /* ZSFilter.swift in Sources */,
 				2B50E8BE25822CFD004ED115 /* ZSFilterAttachment.metal in Sources */,
+				2B50E8D3258321BE004ED115 /* ZSTextFilter.metal in Sources */,
 				2B5C7387257F2910003467F7 /* VideoFilter.swift in Sources */,
 				2B5C73BA2580DC5E003467F7 /* VideoIconBgUpper.metal in Sources */,
 				2B5C73B42580CE8E003467F7 /* VideoIconBgFilter.metal in Sources */,
-				2B50E8B625821AD9004ED115 /* ZSStarTexture.swift in Sources */,
 				2B5C72C425774061003467F7 /* AppDelegate.swift in Sources */,
+				2B50E8D0258321A8004ED115 /* ZSTextFilter.swift in Sources */,
 				2B5C739A25806CE8003467F7 /* VideoIconFilter.metal in Sources */,
 				2B5C7393257F6DE3003467F7 /* VideoReader.swift in Sources */,
 			);
