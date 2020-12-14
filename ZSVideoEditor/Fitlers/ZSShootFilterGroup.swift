@@ -8,7 +8,7 @@
 import MetalKit
 
 final class ZSShootFilterGroup {
-  private var filters = [ZSFilter]()
+  private var filters = [ZSFilterProtocol]()
   
   init() {
     let textureLoader = MetalInstance.shared.textureLoader
@@ -68,12 +68,19 @@ final class ZSShootFilterGroup {
     circle6Filter.add(rotateAnimation)
     
     filters.forEach { (filter) in
-      filter.add(ZSFilterAnimation(startTime: 0.0, endTime: 1.0, type: .scale(from: 0, to: 1)))
+      filter.add(ZSFilterAnimation(startTime: 0.0, endTime: 0.7, type: .scale(from: 0, to: 0)))
+      filter.add(ZSFilterAnimation(startTime: 0.7, endTime: 1.0, type: .scale(from: 0, to: 1)))
     }
     
-//    let arrowFilter = ZSFilter(CGRect(x: 400, y: 30, width: 90, height: 90))
-//    circle1Filter.set(content: textures[0])
-//    filters.append(circle1Filter)
+    let arrowWidth: CGFloat = size * 1.5;
+    let arrowHeight: CGFloat = 10;
+    let arrowFrame = CGRect(x: center.x,
+                            y: center.y - arrowHeight * 0.5,
+                            width: arrowWidth,
+                            height: arrowHeight)
+    let arrowFilter = ZSEventShootArrowFilter(arrowFrame)
+    arrowFilter.set(content: textures[7])
+    filters.append(arrowFilter)
   }
   
   func render(_ inTexture: MTLTexture, timer: Float) {

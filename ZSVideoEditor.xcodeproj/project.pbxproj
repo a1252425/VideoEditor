@@ -20,6 +20,8 @@
 		2B50E8F125837A87004ED115 /* event_shoot_circle_6.png in Resources */ = {isa = PBXBuildFile; fileRef = 2B50E8E925837A87004ED115 /* event_shoot_circle_6.png */; };
 		2B50E8F225837A87004ED115 /* event_shoot_circle_5.png in Resources */ = {isa = PBXBuildFile; fileRef = 2B50E8EA25837A87004ED115 /* event_shoot_circle_5.png */; };
 		2B50E8F525837ABD004ED115 /* ZSShootFilterGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B50E8F425837ABD004ED115 /* ZSShootFilterGroup.swift */; };
+		2B50E8F9258384BF004ED115 /* ZSEventShootArrowFilter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B50E8F8258384BF004ED115 /* ZSEventShootArrowFilter.swift */; };
+		2B50E8FC25838542004ED115 /* ZSEventShootArrowFilter.metal in Sources */ = {isa = PBXBuildFile; fileRef = 2B50E8FB25838542004ED115 /* ZSEventShootArrowFilter.metal */; };
 		2B5C72C425774061003467F7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B5C72C325774061003467F7 /* AppDelegate.swift */; };
 		2B5C72C825774061003467F7 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B5C72C725774061003467F7 /* HomeViewController.swift */; };
 		2B5C72CD25774065003467F7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2B5C72CC25774065003467F7 /* Assets.xcassets */; };
@@ -60,6 +62,8 @@
 		2B50E8E925837A87004ED115 /* event_shoot_circle_6.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = event_shoot_circle_6.png; sourceTree = "<group>"; };
 		2B50E8EA25837A87004ED115 /* event_shoot_circle_5.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = event_shoot_circle_5.png; sourceTree = "<group>"; };
 		2B50E8F425837ABD004ED115 /* ZSShootFilterGroup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZSShootFilterGroup.swift; sourceTree = "<group>"; };
+		2B50E8F8258384BF004ED115 /* ZSEventShootArrowFilter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZSEventShootArrowFilter.swift; sourceTree = "<group>"; };
+		2B50E8FB25838542004ED115 /* ZSEventShootArrowFilter.metal */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.metal; path = ZSEventShootArrowFilter.metal; sourceTree = "<group>"; };
 		2B5C72C025774061003467F7 /* ZSVideoEditor.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ZSVideoEditor.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2B5C72C325774061003467F7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2B5C72C725774061003467F7 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
@@ -167,6 +171,8 @@
 				2B50E8CF258321A8004ED115 /* ZSTextFilter.swift */,
 				2B50E8D2258321BE004ED115 /* ZSTextFilter.metal */,
 				2B50E8F425837ABD004ED115 /* ZSShootFilterGroup.swift */,
+				2B50E8F8258384BF004ED115 /* ZSEventShootArrowFilter.swift */,
+				2B50E8FB25838542004ED115 /* ZSEventShootArrowFilter.metal */,
 				2B50E8DD25836E12004ED115 /* ZSClearFilter.swift */,
 				2B5C7386257F2910003467F7 /* VideoFilter.swift */,
 				2B5C736E257E54D8003467F7 /* VideoFlash.metal */,
@@ -292,6 +298,7 @@
 				2B5C72C825774061003467F7 /* HomeViewController.swift in Sources */,
 				2B5C73C42580E6E5003467F7 /* CommonView.swift in Sources */,
 				2B5C72EA25774B66003467F7 /* MetalInstance.swift in Sources */,
+				2B50E8F9258384BF004ED115 /* ZSEventShootArrowFilter.swift in Sources */,
 				2B5C735C257A3111003467F7 /* MathUtils.swift in Sources */,
 				2B5C73C12580E304003467F7 /* ZSFilter.metal in Sources */,
 				2B50E8F525837ABD004ED115 /* ZSShootFilterGroup.swift in Sources */,
@@ -300,6 +307,7 @@
 				2B50E8D3258321BE004ED115 /* ZSTextFilter.metal in Sources */,
 				2B5C7387257F2910003467F7 /* VideoFilter.swift in Sources */,
 				2B5C72C425774061003467F7 /* AppDelegate.swift in Sources */,
+				2B50E8FC25838542004ED115 /* ZSEventShootArrowFilter.metal in Sources */,
 				2B50E8DE25836E12004ED115 /* ZSClearFilter.swift in Sources */,
 				2B50E8D0258321A8004ED115 /* ZSTextFilter.swift in Sources */,
 				2B5C739A25806CE8003467F7 /* VideoIconFilter.metal in Sources */,
