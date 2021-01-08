@@ -22,10 +22,12 @@ kernel void zs_view(
                                    address::clamp_to_zero,
                                    filter::linear);
   float2 translate = float2(transform[3][0], transform[3][1]);
-  float2 uv = (float2(gid) - frame.xy + translate) / float2(frame.zw);
-  uv = uv * 2 - 1;
-  float4 uv4 = float4(uv, 0, 1) * transform;
-  uv = (uv4.xy + 1) * 0.5;
+  float2x2 rotateAndScale = float2x2(
+                                     transform[0][0], transform[0][1],
+                                     transform[1][0], transform[1][1]
+                                     );
+  float2 result = (float2(gid) - frame.xy + translate) * rotateAndScale;
+  float2 uv = result / float2(frame.zw);
   float4 contentColor = content.sample(textureSampler, uv);
   color = mix(color, contentColor, contentColor.a);
   output.write(color, gid);

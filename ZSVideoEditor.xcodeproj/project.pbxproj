@@ -22,6 +22,8 @@
 		2B50E8F525837ABD004ED115 /* ZSShootFilterGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B50E8F425837ABD004ED115 /* ZSShootFilterGroup.swift */; };
 		2B50E8F9258384BF004ED115 /* ZSEventShootArrowFilter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B50E8F8258384BF004ED115 /* ZSEventShootArrowFilter.swift */; };
 		2B50E8FC25838542004ED115 /* ZSEventShootArrowFilter.metal in Sources */ = {isa = PBXBuildFile; fileRef = 2B50E8FB25838542004ED115 /* ZSEventShootArrowFilter.metal */; };
+		2B50E8FF25871EF7004ED115 /* ZSFlashFilterGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B50E8FE25871EF7004ED115 /* ZSFlashFilterGroup.swift */; };
+		2B50E90325871FAE004ED115 /* icon_line_black.png in Resources */ = {isa = PBXBuildFile; fileRef = 2B50E90225871FAE004ED115 /* icon_line_black.png */; };
 		2B5C72C425774061003467F7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B5C72C325774061003467F7 /* AppDelegate.swift */; };
 		2B5C72C825774061003467F7 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B5C72C725774061003467F7 /* HomeViewController.swift */; };
 		2B5C72CD25774065003467F7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2B5C72CC25774065003467F7 /* Assets.xcassets */; };
@@ -64,6 +66,8 @@
 		2B50E8F425837ABD004ED115 /* ZSShootFilterGroup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZSShootFilterGroup.swift; sourceTree = "<group>"; };
 		2B50E8F8258384BF004ED115 /* ZSEventShootArrowFilter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZSEventShootArrowFilter.swift; sourceTree = "<group>"; };
 		2B50E8FB25838542004ED115 /* ZSEventShootArrowFilter.metal */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.metal; path = ZSEventShootArrowFilter.metal; sourceTree = "<group>"; };
+		2B50E8FE25871EF7004ED115 /* ZSFlashFilterGroup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZSFlashFilterGroup.swift; sourceTree = "<group>"; };
+		2B50E90225871FAE004ED115 /* icon_line_black.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_line_black.png; sourceTree = "<group>"; };
 		2B5C72C025774061003467F7 /* ZSVideoEditor.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ZSVideoEditor.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2B5C72C325774061003467F7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2B5C72C725774061003467F7 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
@@ -170,6 +174,7 @@
 				2B5C73C02580E304003467F7 /* ZSFilter.metal */,
 				2B50E8CF258321A8004ED115 /* ZSTextFilter.swift */,
 				2B50E8D2258321BE004ED115 /* ZSTextFilter.metal */,
+				2B50E8FE25871EF7004ED115 /* ZSFlashFilterGroup.swift */,
 				2B50E8F425837ABD004ED115 /* ZSShootFilterGroup.swift */,
 				2B50E8F8258384BF004ED115 /* ZSEventShootArrowFilter.swift */,
 				2B50E8FB25838542004ED115 /* ZSEventShootArrowFilter.metal */,
@@ -196,6 +201,7 @@
 			isa = PBXGroup;
 			children = (
 				2B5C739F258074CF003467F7 /* icon_line.png */,
+				2B50E90225871FAE004ED115 /* icon_line_black.png */,
 				2B5C73A1258074CF003467F7 /* icon_bg.png */,
 				2B5C739D258074CF003467F7 /* icon_display.png */,
 				2B5C73A0258074CF003467F7 /* icon_football.png */,
@@ -281,6 +287,7 @@
 				2B50E8EC25837A87004ED115 /* event_shoot_speed_bg.png in Resources */,
 				2B5C73A5258074CF003467F7 /* icon_title.png in Resources */,
 				2B50E8EE25837A87004ED115 /* event_shoot_circle_2.png in Resources */,
+				2B50E90325871FAE004ED115 /* icon_line_black.png in Resources */,
 				2B5C73A8258074CF003467F7 /* icon_bg.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -304,6 +311,7 @@
 				2B50E8F525837ABD004ED115 /* ZSShootFilterGroup.swift in Sources */,
 				2B50E8DA2583480E004ED115 /* ZSFilterModel.swift in Sources */,
 				2B5C7376257F1EDB003467F7 /* ZSFilter.swift in Sources */,
+				2B50E8FF25871EF7004ED115 /* ZSFlashFilterGroup.swift in Sources */,
 				2B50E8D3258321BE004ED115 /* ZSTextFilter.metal in Sources */,
 				2B5C7387257F2910003467F7 /* VideoFilter.swift in Sources */,
 				2B5C72C425774061003467F7 /* AppDelegate.swift in Sources */,

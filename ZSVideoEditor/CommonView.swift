@@ -11,6 +11,7 @@ final class CommonView: MTKView {
   private var textures = [MTLTexture]()
   
   private lazy var clearFilter = ZSClearFilter()
+  private lazy var flashFilter = ZSFlashFilterGroup(bounds)
   private lazy var bgFilter = ZSFilter(CGRect(x: 60, y: 30, width: 210, height: 210))
   private lazy var filterGroup = ZSShootFilterGroup()
 //  private lazy var textFilter: ZSTextFilter = {
@@ -44,8 +45,9 @@ final class CommonView: MTKView {
     guard let drawable = currentDrawable else { return }
     
     clearFilter.render(drawable.texture)
-    bgFilter.render(drawable.texture, time: timer)
-    filterGroup.render(drawable.texture, timer: timer)
+    flashFilter.render(drawable.texture, timer: timer)
+//    bgFilter.render(drawable.texture, time: timer)
+//    filterGroup.render(drawable.texture, timer: timer)
 //    textFilter.render(drawable.texture, time: timer)
     
     guard
