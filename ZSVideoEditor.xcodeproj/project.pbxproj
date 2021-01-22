@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2B14395725BA755600FCE820 /* ZSMetalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B14395625BA755600FCE820 /* ZSMetalViewController.swift */; };
+		2B14395B25BA761600FCE820 /* CGSRenderer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B14395A25BA761500FCE820 /* CGSRenderer.swift */; };
+		2B14395E25BA859D00FCE820 /* CGSRenderer.metal in Sources */ = {isa = PBXBuildFile; fileRef = 2B14395D25BA859C00FCE820 /* CGSRenderer.metal */; };
+		2B14396925BAD43D00FCE820 /* ZSGearMesh.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B14396825BAD43D00FCE820 /* ZSGearMesh.swift */; };
+		2B14396C25BAE4CA00FCE820 /* ICBRenderer.metal in Sources */ = {isa = PBXBuildFile; fileRef = 2B14396B25BAE4CA00FCE820 /* ICBRenderer.metal */; };
 		2B50E8D0258321A8004ED115 /* ZSTextFilter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B50E8CF258321A8004ED115 /* ZSTextFilter.swift */; };
 		2B50E8D3258321BE004ED115 /* ZSTextFilter.metal in Sources */ = {isa = PBXBuildFile; fileRef = 2B50E8D2258321BE004ED115 /* ZSTextFilter.metal */; };
 		2B50E8DA2583480E004ED115 /* ZSFilterModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B50E8D92583480E004ED115 /* ZSFilterModel.swift */; };
@@ -48,9 +53,17 @@
 		2B5C73AE25808135003467F7 /* DisplayView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2B5C73AD25808135003467F7 /* DisplayView.xib */; };
 		2B5C73C12580E304003467F7 /* ZSFilter.metal in Sources */ = {isa = PBXBuildFile; fileRef = 2B5C73C02580E304003467F7 /* ZSFilter.metal */; };
 		2B5C73C42580E6E5003467F7 /* CommonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B5C73C32580E6E5003467F7 /* CommonView.swift */; };
+		2BD2A6AB25B6805800C9FF27 /* InnerShadowLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BD2A6AA25B6805800C9FF27 /* InnerShadowLayer.swift */; };
+		2BD2A6B525B6B68600C9FF27 /* ICBViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BD2A6B425B6B68600C9FF27 /* ICBViewController.swift */; };
+		2BD2A6B825B6B76100C9FF27 /* ICBRenderer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BD2A6B725B6B76100C9FF27 /* ICBRenderer.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		2B14395625BA755600FCE820 /* ZSMetalViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZSMetalViewController.swift; sourceTree = "<group>"; };
+		2B14395A25BA761500FCE820 /* CGSRenderer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CGSRenderer.swift; sourceTree = "<group>"; };
+		2B14395D25BA859C00FCE820 /* CGSRenderer.metal */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.metal; path = CGSRenderer.metal; sourceTree = "<group>"; };
+		2B14396825BAD43D00FCE820 /* ZSGearMesh.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZSGearMesh.swift; sourceTree = "<group>"; };
+		2B14396B25BAE4CA00FCE820 /* ICBRenderer.metal */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.metal; path = ICBRenderer.metal; sourceTree = "<group>"; };
 		2B50E8CF258321A8004ED115 /* ZSTextFilter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZSTextFilter.swift; sourceTree = "<group>"; };
 		2B50E8D2258321BE004ED115 /* ZSTextFilter.metal */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.metal; path = ZSTextFilter.metal; sourceTree = "<group>"; };
 		2B50E8D92583480E004ED115 /* ZSFilterModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZSFilterModel.swift; sourceTree = "<group>"; };
@@ -94,6 +107,9 @@
 		2B5C73AD25808135003467F7 /* DisplayView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DisplayView.xib; sourceTree = "<group>"; };
 		2B5C73C02580E304003467F7 /* ZSFilter.metal */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.metal; path = ZSFilter.metal; sourceTree = "<group>"; };
 		2B5C73C32580E6E5003467F7 /* CommonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonView.swift; sourceTree = "<group>"; };
+		2BD2A6AA25B6805800C9FF27 /* InnerShadowLayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InnerShadowLayer.swift; sourceTree = "<group>"; };
+		2BD2A6B425B6B68600C9FF27 /* ICBViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ICBViewController.swift; sourceTree = "<group>"; };
+		2BD2A6B725B6B76100C9FF27 /* ICBRenderer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ICBRenderer.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -141,6 +157,7 @@
 		2B5C72C225774061003467F7 /* ZSVideoEditor */ = {
 			isa = PBXGroup;
 			children = (
+				2BD2A6A925B6803900C9FF27 /* Test */,
 				2B5C72C325774061003467F7 /* AppDelegate.swift */,
 				2B5C72DA257740C6003467F7 /* ZSNavigationController.swift */,
 				2B5C72C725774061003467F7 /* HomeViewController.swift */,
@@ -210,6 +227,21 @@
 				2B5C73A3258074CF003467F7 /* icon_upper_bg.png */,
 			);
 			path = icon_images;
+			sourceTree = "<group>";
+		};
+		2BD2A6A925B6803900C9FF27 /* Test */ = {
+			isa = PBXGroup;
+			children = (
+				2BD2A6AA25B6805800C9FF27 /* InnerShadowLayer.swift */,
+				2BD2A6B425B6B68600C9FF27 /* ICBViewController.swift */,
+				2BD2A6B725B6B76100C9FF27 /* ICBRenderer.swift */,
+				2B14396B25BAE4CA00FCE820 /* ICBRenderer.metal */,
+				2B14396825BAD43D00FCE820 /* ZSGearMesh.swift */,
+				2B14395625BA755600FCE820 /* ZSMetalViewController.swift */,
+				2B14395A25BA761500FCE820 /* CGSRenderer.swift */,
+				2B14395D25BA859C00FCE820 /* CGSRenderer.metal */,
+			);
+			path = Test;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -299,12 +331,20 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2B14396925BAD43D00FCE820 /* ZSGearMesh.swift in Sources */,
 				2B5C72DB257740C6003467F7 /* ZSNavigationController.swift in Sources */,
 				2B5C7370257E54D9003467F7 /* VideoFlash.metal in Sources */,
+				2B14395E25BA859D00FCE820 /* CGSRenderer.metal in Sources */,
 				2B5C737D257F1FCC003467F7 /* DisplayView.swift in Sources */,
 				2B5C72C825774061003467F7 /* HomeViewController.swift in Sources */,
+				2B14396C25BAE4CA00FCE820 /* ICBRenderer.metal in Sources */,
 				2B5C73C42580E6E5003467F7 /* CommonView.swift in Sources */,
 				2B5C72EA25774B66003467F7 /* MetalInstance.swift in Sources */,
+				2B14395725BA755600FCE820 /* ZSMetalViewController.swift in Sources */,
+				2BD2A6B825B6B76100C9FF27 /* ICBRenderer.swift in Sources */,
+				2B14395B25BA761600FCE820 /* CGSRenderer.swift in Sources */,
+				2BD2A6AB25B6805800C9FF27 /* InnerShadowLayer.swift in Sources */,
+				2BD2A6B525B6B68600C9FF27 /* ICBViewController.swift in Sources */,
 				2B50E8F9258384BF004ED115 /* ZSEventShootArrowFilter.swift in Sources */,
 				2B5C735C257A3111003467F7 /* MathUtils.swift in Sources */,
 				2B5C73C12580E304003467F7 /* ZSFilter.metal in Sources */,

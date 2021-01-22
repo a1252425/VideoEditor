@@ -28,6 +28,13 @@ final class HomeViewController: UIViewController {
     layoutUI()
     configUI()
     view.addSubview(renderView)
+    
+    let inLayer = InnerShadowLayer()
+    inLayer.backgroundColor = UIColor.red.cgColor
+//    inLayer.innerShadowOpacity = 0.4
+    inLayer.innerShadowOffset = CGSize(width: 10, height: 14)
+    view.layer.addSublayer(inLayer)
+    inLayer.frame = CGRect(x: 50, y: 60, width: 60, height: 200)
   }
   
   override func viewDidLayoutSubviews() {
@@ -51,7 +58,8 @@ final class HomeViewController: UIViewController {
   }
   
   @objc private func historyVideo() {
-    
+    let controller = ZSMetalViewController()
+    show(controller, sender: nil)
   }
 }
 
